@@ -22,3 +22,8 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/.gradle/8.2/dependencies-accessors/executionHistory.bin
+/.gradle/file-system.probe
+/.gradle/8.2/dependencies-accessors/b55b7af2b19dfa31c7640c0927ffcb6c123e51f7/sources/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.java
+/.gradle/8.2/dependencies-accessors/b55b7af2b19dfa31c7640c0927ffcb6c123e51f7/sources/org/gradle/accessors/dm/LibrariesForLibs.java
+/.idea/.name
