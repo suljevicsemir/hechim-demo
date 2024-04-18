@@ -27,3 +27,10 @@ replay_pid*
 /.gradle/8.2/dependencies-accessors/b55b7af2b19dfa31c7640c0927ffcb6c123e51f7/sources/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.java
 /.gradle/8.2/dependencies-accessors/b55b7af2b19dfa31c7640c0927ffcb6c123e51f7/sources/org/gradle/accessors/dm/LibrariesForLibs.java
 /.idea/.name
+/keystore.properties
+/app/hechim-keystore-dev.jks
+/app/hechim-keystore-prod.jks
+*.lock
+*.bin
+/.idea/workspace.xml
+/.idea/
