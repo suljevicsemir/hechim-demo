@@ -1,4 +1,4 @@
-package com.example.hechimdemo
+package com.semirsuljevic.hechimdemo
 
 import org.junit.Test
 

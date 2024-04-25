@@ -1,4 +1,4 @@
-package com.example.hechimdemo.ui.theme
+package com.semirsuljevic.hechimdemo.ui.theme
 
 import android.app.Activity
 import android.os.Build
