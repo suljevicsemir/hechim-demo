@@ -34,3 +34,9 @@ replay_pid*
 *.bin
 /.idea/workspace.xml
 /.idea/
+*.len
+*.keystream
+/build
+/build-logic/convention/build
+/build-logic/.gradle
+/.gradle
