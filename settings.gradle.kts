@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Hechim Demo"
 include(":app")
+include(":Onboarding")
