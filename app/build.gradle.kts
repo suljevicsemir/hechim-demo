@@ -112,6 +112,7 @@ android {
 
 dependencies {
     implementation(project(":Onboarding"))
+    implementation(project(":UI"))
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
