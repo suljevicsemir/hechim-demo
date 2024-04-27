@@ -11,8 +11,8 @@ class FeaturePlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply {
-                apply("drivewellapp.android.library")
-                apply("drivewellapp.android.hilt")
+                apply("hechimdemo.android.library")
+                apply("hechimdemo.android.hilt")
             }
             extensions.configure<LibraryExtension> {
                 defaultConfig {
@@ -25,9 +25,9 @@ class FeaturePlugin : Plugin<Project> {
             dependencies {
                 // add("implementation", libs.findLibrary("lifecycle.runtimeCompose").get())
                 // add("implementation", libs.findLibrary("lifecycle.viewModelCompose").get())
-                add("implementation", libs.findLibrary("kotlinx.serialization.json").get())
+                //add("implementation", libs.findLibrary("kotlinx.serialization.json").get())
                 add("implementation", libs.findLibrary("datastore").get())
-                add("implementation", libs.findLibrary("kotlinx.collections.immutable").get())
+                //add("implementation", libs.findLibrary("kotlinx.collections.immutable").get())
             }
         }
     }
