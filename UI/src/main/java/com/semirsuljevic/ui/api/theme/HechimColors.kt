@@ -1,8 +1,8 @@
-package com.semirsuljevic.ui.api
+package com.semirsuljevic.ui.api.theme
 
 import androidx.compose.ui.graphics.Color
 
-object HechimTheme {
+object HechimColors {
     //background #F6F6F6
     val backgroundDefault = Color(0xffF6F6F6)
     val textDefault = Color(0xff152D4A)
