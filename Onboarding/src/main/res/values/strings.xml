@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_1_headline">Welcome to FitnessPal!</string>
+    <string name="onboarding_1_desc">Kickstart your journey to a healthier you with FitnessPal. Whether you are a seasoned athlete or just starting out, our app is designed to support you every step of the way.</string>
+    <string name="onboarding_2_headline">Personalized Workouts</string>
+    <string name="onboarding_2_desc">Say goodbye to generic routines! FitnessPal tailors workouts to your fitness level, goals, and preferences, ensuring each session is effective and enjoyable.</string>
+    <string name="onboarding_3_headline">Track Your Progress</string>
+    <string name="onboarding_3_desc">Keep tabs on your achievements with our intuitive progress tracker. From calories burned to personal bests, see your hard work pay off and stay motivated to reach new heights.</string>
+    <string name="onboarding_next_button">NEXT</string>
+    <string name="onboarding_proceed">LET\'S GO!</string>
+    <string name="onboarding_top_bar">WELCOME</string>
+</resources>
