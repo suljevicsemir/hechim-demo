@@ -1,3 +1,5 @@
+import com.semirsuljevic.hechimdemo.HechimBrandFlavor
+import com.semirsuljevic.hechimdemo.HechimFlavorDimension
 import java.io.FileInputStream
 import java.util.Properties
 
@@ -50,6 +52,10 @@ android {
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -72,21 +78,13 @@ android {
     }
 
 
-    flavorDimensions.add(SigningConstants.flavorDimension)
+    flavorDimensions += HechimFlavorDimension.version.name
     productFlavors {
-        create(SigningConstants.devFlavor) {
-            dimension = flavorDimensions.first()
-            applicationId = "com.semirsuljevic.hechim"
-            applicationIdSuffix = ".dev"
-            buildConfigField("String", "BASE_URL", "\"TBD\"")
-            signingConfig = signingConfigs.getAt(SigningConstants.devFlavor)
-        }
-
-        create(SigningConstants.prodFlavor) {
-            dimension = flavorDimensions.first()
-            applicationId = "ba.semirsuljevic.hechim"
-            buildConfigField("String", "BASE_URL", "\"TBD\"")
-            signingConfig = signingConfigs.getAt(SigningConstants.prodFlavor)
+        HechimBrandFlavor.values().forEach {
+            create(it.name) {
+                dimension = it.dimension.name
+                applicationId = it.applicationId
+            }
         }
     }
 

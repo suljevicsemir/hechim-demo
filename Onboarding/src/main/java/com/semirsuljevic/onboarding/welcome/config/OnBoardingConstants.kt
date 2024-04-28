@@ -1,6 +1,6 @@
 package com.semirsuljevic.onboarding.welcome.config
 
-import com.cmtelematics.cmtauthentication.R
+import com.hechimdemo.onboarding.R
 
 object OnBoardingConstants {
 

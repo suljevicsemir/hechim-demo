@@ -7,7 +7,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cmtelematics.cmtauthentication.R
+import com.hechimdemo.onboarding.R
 import com.semirsuljevic.onboarding.welcome.config.OnBoardingConstants
 import com.semirsuljevic.onboarding.welcome.config.OnBoardingItem
 import dagger.hilt.android.lifecycle.HiltViewModel

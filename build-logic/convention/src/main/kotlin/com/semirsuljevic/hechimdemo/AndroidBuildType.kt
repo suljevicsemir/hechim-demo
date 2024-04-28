@@ -7,17 +7,17 @@ internal fun Project.configureBuildType(
     commonExtension: CommonExtension<*, *, *, *, *>,
 ) {
     commonExtension.apply {
-        buildTypes {
-            create("beta") {
-                initWith(getByName("debug"))
-                isMinifyEnabled = false
-                isJniDebuggable = false
-            }
-            create("staging") {
-                initWith(getByName("debug"))
-                isMinifyEnabled = false
-                isJniDebuggable = false
-            }
-        }
+//        buildTypes {
+//            create("beta") {
+//                initWith(getByName("debug"))
+//                isMinifyEnabled = false
+//                isJniDebuggable = false
+//            }
+//            create("staging") {
+//                initWith(getByName("debug"))
+//                isMinifyEnabled = false
+//                isJniDebuggable = false
+//            }
+//        }
     }
 }

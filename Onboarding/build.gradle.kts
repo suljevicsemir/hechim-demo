@@ -1,14 +1,12 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
+
 plugins {
     id("hechimdemo.android.feature")
     id("hechimdemo.android.library.compose")
     alias(libs.plugins.kotlin.serialization)
-//    alias(libs.plugins.com.android.library)
-//    alias(libs.plugins.kotlinAndroid)
 }
 
 android {
-    namespace = "com.cmtelematics.cmtauthentication"
+    namespace = "com.hechimdemo.onboarding"
     hilt {
         enableAggregatingTask = true
     }

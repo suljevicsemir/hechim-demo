@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.cmtelematics.cmtauthentication.R
+import com.hechimdemo.onboarding.R
 import com.semirsuljevic.onboarding.welcome.config.OnBoardingItem
 import com.semirsuljevic.ui.api.theme.HechimTheme
 

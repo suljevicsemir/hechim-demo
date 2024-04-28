@@ -21,7 +21,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.cmtelematics.cmtauthentication.R
+import com.hechimdemo.onboarding.R
 import com.semirsuljevic.onboarding.welcome.viewmodel.OnBoardingViewModel
 import com.semirsuljevic.ui.api.buttons.HechimPaddedButton
 import com.semirsuljevic.ui.api.paging.PageIndexIndicator
