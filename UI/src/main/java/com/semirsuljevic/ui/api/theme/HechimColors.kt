@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 object HechimColors {
     //background #F6F6F6
     val backgroundDefault = Color(0xffF6F6F6)
+    val backgroundSecondary = Color(0xffFFECDF)
     val textDefault = Color(0xff152D4A)
     val primary = Color(0xffFF6900)
     val secondary = Color(0xffCCCCCC)

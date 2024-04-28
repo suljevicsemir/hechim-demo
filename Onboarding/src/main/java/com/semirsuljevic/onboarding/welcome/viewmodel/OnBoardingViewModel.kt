@@ -12,6 +12,7 @@ import com.semirsuljevic.onboarding.welcome.config.OnBoardingConstants
 import com.semirsuljevic.onboarding.welcome.config.OnBoardingItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,14 +34,16 @@ class OnBoardingViewModel @Inject constructor(
     val items get() = OnBoardingConstants.onBoardingItems
 
     @OptIn(ExperimentalFoundationApi::class)
-    fun onButtonClick(pagerState: PagerState) {
-        viewModelScope.launch {
-            if(selectedIndex == items.size - 1) {
+    suspend fun onButtonClick(pagerState: PagerState) {
+        withContext(viewModelScope.coroutineContext) {
+            if(_selectedIndex.intValue != items.size - 1) {
+                println("upo je")
                 pagerState.animateScrollToPage(_selectedIndex.intValue + 1)
-                return@launch
+                return@withContext
             }
-            //navigate to next screen, likely language selection
+            println("nije upo")
         }
+
     }
 
     /** Returns pager screen info for currently selected index. */
