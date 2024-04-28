@@ -1,44 +1,57 @@
 package com.semirsuljevic.onboarding.welcome.ui
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import com.cmtelematics.cmtauthentication.R
+import com.semirsuljevic.onboarding.welcome.config.OnBoardingItem
+import com.semirsuljevic.ui.api.theme.HechimTheme
 
 @Composable
-internal fun OnBoardingScreen(
-    headline: String,
-    description: String,
-    image: Int,
+internal fun PageViewItem(
+    item: OnBoardingItem
 ) {
-    Column (
-        modifier = Modifier.background(color = Color.Red)
-    ){
+    Column{
         Image(
-            painter = painterResource(id = image),
+            painter = painterResource(id = item.image),
             contentDescription = null,
-            modifier = Modifier.padding(bottom = 20.dp)
+            modifier = Modifier.padding(bottom = HechimTheme.sizes.xLarge)
         )
         Column (
-            modifier = Modifier.padding(horizontal = 32.dp, vertical = 10.dp)
+            modifier = Modifier.padding(
+                horizontal = HechimTheme.sizes.xxLarge,
+                vertical = HechimTheme.sizes.medium
+            )
         ){
             Text(
-                text = headline,
-                modifier = Modifier.padding(bottom = 20.dp),
-//                style = MaterialTheme.typography.h1,
-//                color = MaterialTheme.colors.onPrimary
+                text = stringResource(id = item.headlineKey),
+                modifier = Modifier.padding(bottom = HechimTheme.sizes.large),
+                style = HechimTheme.fonts.bodyLarge,
+                color = HechimTheme.colors.textDefault
             )
             Text(
-                text = description,
-//                style = MaterialTheme.typography.h4,
-//                color = MaterialTheme.colors.onPrimary
+                text = stringResource(id = item.descriptionKey),
+                style = HechimTheme.fonts.bodyRegular,
+                color = HechimTheme.colors.textDefault
             )
         }
     }
+}
+
+@Preview
+@Composable
+private fun PageViewItemPreview() {
+    PageViewItem(
+        OnBoardingItem(
+            headlineKey = R.string.onboarding_1_headline,
+            descriptionKey = R.string.onboarding_1_desc,
+            image = R.drawable.img_onboarding_1
+        )
+    )
 }
