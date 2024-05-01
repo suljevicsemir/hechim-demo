@@ -19,6 +19,7 @@ hiltExt = "1.1.0"
 ksp = "1.9.10-1.0.13"
 serialization-json = "1.6.0"
 accompanist = "0.35.0-alpha"
+security = "1.1.0-alpha03"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -66,7 +67,9 @@ lifecycle-runtime-testing = { group = "androidx.lifecycle", name = "lifecycle-ru
 datastore = { group = "androidx.datastore", name ="datastore", version.ref = "datastore" }
 datastore-preferences = { group = "androidx.datastore", name ="datastore-preferences", version.ref = "datastore" }
 
-#Accompanist
+#Security
+security-crypto = {group = "androidx.security", name ="security-crypto", version.ref = "security"}
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
