@@ -24,4 +24,4 @@ rootProject.name = "Hechim Demo"
 include(":app")
 include(":Onboarding")
 include(":UI")
-include(":Storage")
+include(":Foundation")
