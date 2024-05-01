@@ -1,17 +1,12 @@
-package com.semirsuljevic.onboarding.welcome.viewmodel
+package com.semirsuljevic.onboarding.api.welcome.viewmodel
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hechimdemo.onboarding.R
-import com.semirsuljevic.onboarding.welcome.config.OnBoardingConstants
-import com.semirsuljevic.onboarding.welcome.config.OnBoardingItem
+import com.semirsuljevic.onboarding.api.welcome.config.welcome.OnBoardingConstants
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -37,11 +32,10 @@ class OnBoardingViewModel @Inject constructor(
     suspend fun onButtonClick(pagerState: PagerState) {
         withContext(viewModelScope.coroutineContext) {
             if(_selectedIndex.intValue != items.size - 1) {
-                println("upo je")
                 pagerState.animateScrollToPage(_selectedIndex.intValue + 1)
                 return@withContext
             }
-            println("nije upo")
+            //navigate to language selection, set onboarding completed
         }
 
     }

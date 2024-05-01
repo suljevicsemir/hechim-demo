@@ -25,8 +25,9 @@ class FeaturePlugin : Plugin<Project> {
             dependencies {
                 // add("implementation", libs.findLibrary("lifecycle.runtimeCompose").get())
                 // add("implementation", libs.findLibrary("lifecycle.viewModelCompose").get())
-                //add("implementation", libs.findLibrary("kotlinx.serialization.json").get())
+                add("implementation", libs.findLibrary("kotlinx.serialization.json").get())
                 add("implementation", libs.findLibrary("datastore").get())
+                add("implementation", libs.findLibrary("material3").get())
                 //add("implementation", libs.findLibrary("kotlinx.collections.immutable").get())
             }
         }

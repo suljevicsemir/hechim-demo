@@ -6,7 +6,7 @@ import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.semirsuljevic.onboarding.onBoardingNavGraph
+import com.semirsuljevic.onboarding.api.onBoardingNavGraph
 
 @Composable
 fun AppNavigator(

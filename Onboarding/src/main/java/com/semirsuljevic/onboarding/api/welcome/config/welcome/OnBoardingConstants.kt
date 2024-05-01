@@ -1,4 +1,4 @@
-package com.semirsuljevic.onboarding.welcome.config
+package com.semirsuljevic.onboarding.api.welcome.config.welcome
 
 import com.hechimdemo.onboarding.R
 

@@ -9,4 +9,20 @@
     <string name="onboarding_next_button">NEXT</string>
     <string name="onboarding_proceed">LET\'S GO!</string>
     <string name="onboarding_top_bar">WELCOME</string>
+
+    <!--Language Selection screen-->
+    <string name="language_selection_title">LANGUAGE SELECTION</string>
+    <string name="language_selection_page_desc">Please select the language for the Eugen app user interface.</string>
+    <string name="language_selection_alert_title">Confirm language change</string>
+    <string name="language_selection_alert_content">Are you sure you want to change the language to %1s?</string>
+    <string name="app_language_fr" translatable="false">Français</string>
+    <string name="app_language_en" translatable="false">English</string>
+    <string name="app_language_de" translatable="false">Deutsch</string>
+    <string name="app_language_it" translatable="false">Italiano</string>
+    <string name="language_selection_not_supported">Language not supported</string>
+
+
+    <string name="common_yes">Yes</string>
+    <string name="common_ok">OK</string>
+    <string name="common_no">No</string>
 </resources>
