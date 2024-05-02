@@ -1,4 +1,4 @@
-package com.semirsuljevic.storage.api.secure
+package com.semirsuljevic.foundation.api.secure
 
 interface SecureStorage {
     companion object {

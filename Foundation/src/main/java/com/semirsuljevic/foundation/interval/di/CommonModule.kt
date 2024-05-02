@@ -1,4 +1,4 @@
-package com.semirsuljevic.storage.interval.di
+package com.semirsuljevic.foundation.interval.di
 
 import android.content.Context
 import dagger.Module

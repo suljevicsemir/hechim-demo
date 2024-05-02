@@ -1,7 +1,7 @@
-package com.semirsuljevic.storage.interval.di
+package com.semirsuljevic.foundation.interval.di
 
-import com.semirsuljevic.storage.api.secure.SecureStorage
-import com.semirsuljevic.storage.interval.secure.SecureStorageImpl
+import com.semirsuljevic.foundation.api.secure.SecureStorage
+import com.semirsuljevic.foundation.interval.secure.SecureStorageImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

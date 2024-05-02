@@ -1,10 +1,10 @@
-package com.semirsuljevic.storage.interval.secure
+package com.semirsuljevic.foundation.interval.secure
 
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import com.semirsuljevic.storage.api.secure.SecureStorage
+import com.semirsuljevic.foundation.api.secure.SecureStorage
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.semirsuljevic.storage
+package com.semirsuljevic.foundation
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
