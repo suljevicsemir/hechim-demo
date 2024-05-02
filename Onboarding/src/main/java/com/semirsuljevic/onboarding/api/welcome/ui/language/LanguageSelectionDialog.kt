@@ -8,7 +8,7 @@ import com.semirsuljevic.ui.api.dialog.HechimDialog
 import com.semirsuljevic.ui.api.dialog.HechimDialogConfig
 
 @Composable
-fun LanguageSelectionDialog(
+internal fun LanguageSelectionDialog(
     onDismiss: () -> Unit,
     onConfirm: () -> Unit,
     visible: Boolean,

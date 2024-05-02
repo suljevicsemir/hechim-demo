@@ -23,15 +23,17 @@ import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLocale
 import com.semirsuljevic.ui.api.theme.HechimTheme
 
 @Composable
-fun LanguageSelectionItem(
+internal fun LanguageSelectionItem(
     appLanguageModel: AppLanguageModel,
     onClick: () -> Unit,
+    selected: Boolean,
     errorMessage: String = stringResource(id = R.string.language_selection_not_supported)
 ) {
     Row (
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start,
         modifier = Modifier
+            .padding(bottom = HechimTheme.sizes.medium)
             .clip(HechimTheme.shapes.xLargeRoundedCorner)
             .background(color = HechimTheme.colors.surfaceBackground)
             .clickable {
@@ -48,12 +50,12 @@ fun LanguageSelectionItem(
         )
         Spacer(modifier = Modifier.width(HechimTheme.sizes.large))
         Text(
-            text = appLanguageModel.text,
+            text = stringResource(id = appLanguageModel.text),
             color = HechimTheme.colors.textDefault,
             style = HechimTheme.fonts.bodyEmphasized
         )
         Spacer(modifier = Modifier.weight(1f))
-        if(appLanguageModel.selected) {
+        if(selected) {
             Image(painter = painterResource(id = R.drawable.ic_radio_on), contentDescription = null)
         }
         else {
@@ -69,10 +71,10 @@ fun LangaugeSelectionItemPreview() {
     LanguageSelectionItem(
         appLanguageModel = AppLanguageModel(
             image = R.drawable.ic_language_en,
-            text = stringResource(id = R.string.app_language_en),
+            text = R.string.app_language_en,
             locale = AppLocale.English,
-            selected = true
         ),
+        selected = true,
         onClick = {
 
         }

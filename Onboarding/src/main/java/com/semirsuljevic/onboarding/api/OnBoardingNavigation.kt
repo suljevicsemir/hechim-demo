@@ -6,6 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.semirsuljevic.onboarding.api.welcome.ui.language.LanguageSelectionRoute
 import com.semirsuljevic.onboarding.api.welcome.ui.OnBoardingRoute
+import com.semirsuljevic.onboarding.api.welcome.viewmodel.LanguageSelectionViewModel
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.OnBoardingViewModel
 
 fun NavGraphBuilder.onBoardingNavGraph(
@@ -16,7 +17,13 @@ fun NavGraphBuilder.onBoardingNavGraph(
         OnBoardingRoute(onBoardingViewModel)
     }
     composable(route = "Language") {
-        LanguageSelectionRoute()
+        val languageSelectionViewModel = viewModel<LanguageSelectionViewModel>(viewModelStoreOwner)
+        LanguageSelectionRoute(
+            languageSelectionViewModel,
+            onContinue = {
+                languageSelectionViewModel.proceed()
+            }
+        )
     }
 
 }

@@ -10,20 +10,24 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import com.semirsuljevic.hechimdemo.ui.AppNavigator
 import com.semirsuljevic.hechimdemo.ui.theme.HechimDemoTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             HechimDemoTheme {
+                val viewModelStoreOwner = checkNotNull(LocalViewModelStoreOwner.current) {}
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    AppNavigator()
+                    AppNavigator(viewModelStoreOwner = viewModelStoreOwner)
                 }
 
             }

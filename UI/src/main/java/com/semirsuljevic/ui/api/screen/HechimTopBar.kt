@@ -1,5 +1,6 @@
 package com.semirsuljevic.ui.api.screen
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
@@ -7,6 +8,10 @@ import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.unit.dp
+import com.semirsuljevic.ui.R
+import com.semirsuljevic.ui.api.buttons.HechimIconButton
 import com.semirsuljevic.ui.api.theme.HechimTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -25,21 +30,20 @@ fun HechimTopBar(
                 Text(
                     config.title,
                     color = HechimTheme.colors.textDefault,
-                    //style = CmtFont.titleRegular
+                    style = HechimTheme.fonts.pageTitle
                 )
             }
         },
         colors = colors,
-        modifier = modifier,
+        modifier = modifier.padding(horizontal = 18.dp),
         navigationIcon = {
-//            if (config.canNavigateBack) {
-//                IconButton(onClick = navigateUp) {
-//                    Image(
-//                        painter = painterResource(id = R.drawable.arrow_left),
-//                        contentDescription = ""
-//                    )
-//                }
-//            }
+            if (config.canNavigateBack) {
+                HechimIconButton(
+                    icon = R.drawable.ic_arrow_right,
+                    onClick = { navigateUp() },
+                    modifier = Modifier.rotate(degrees = 180f)
+                )
+            }
         }
     )
 }

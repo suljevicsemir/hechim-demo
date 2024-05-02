@@ -109,6 +109,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":Foundation"))
     implementation(project(":Onboarding"))
     implementation(project(":UI"))
     implementation(libs.core.ktx)

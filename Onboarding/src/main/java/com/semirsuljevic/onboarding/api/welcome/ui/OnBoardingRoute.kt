@@ -47,7 +47,8 @@ fun OnBoardingRoute(
     HechimScreen (
         config = HechimScreenConfig(
             containerColor = HechimTheme.colors.backgroundSecondary
-        )
+        ),
+        useTopBar = false
     ){
         Column (
             horizontalAlignment = Alignment.CenterHorizontally,

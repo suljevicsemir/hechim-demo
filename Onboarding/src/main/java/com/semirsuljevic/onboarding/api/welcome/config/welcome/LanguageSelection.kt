@@ -1,5 +1,6 @@
 package com.semirsuljevic.onboarding.api.welcome.config.welcome
 
+import androidx.annotation.StringRes
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -10,9 +11,8 @@ data class AppSettings(
 
 data class AppLanguageModel(
     val image: Int,
-    val text: String,
-    val locale: AppLocale,
-    val selected: Boolean,
+    @StringRes val text: Int,
+    val locale: AppLocale
 )
 
 
