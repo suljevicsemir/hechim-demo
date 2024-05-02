@@ -29,6 +29,15 @@ class FeaturePlugin : Plugin<Project> {
                 add("implementation", libs.findLibrary("datastore").get())
                 add("implementation", libs.findLibrary("material3").get())
                 //add("implementation", libs.findLibrary("kotlinx.collections.immutable").get())
+
+                //testing dependencies
+                add("testImplementation", libs.findLibrary("jupiter").get())
+                add("testImplementation", libs.findLibrary("mockk").get())
+                add("testImplementation", libs.findLibrary("testCoroutine").get())
+                add("androidTestImplementation", libs.findLibrary("mockAndroid").get())
+                add("androidTestImplementation", libs.findLibrary("truth").get())
+                add("androidTestImplementation", libs.findLibrary("androidx.test.ext.junit").get())
+                add("androidTestImplementation", libs.findLibrary("espresso.core").get())
             }
         }
     }

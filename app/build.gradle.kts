@@ -8,6 +8,7 @@ plugins {
     id("hechimdemo.android.application")
     id("hechimdemo.android.application.compose")
     id("hechimdemo.android.hilt")
+    id("de.mannodermaus.android-junit5")
 
 }
 
@@ -117,13 +118,23 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.lifecycle.runtime.compose)
+    implementation(libs.kotlinx.serialization.json)
+
+    testImplementation(libs.mockk)
+    testImplementation(libs.mockAndroid)
+    testImplementation(libs.truth)
     testImplementation(libs.lifecycle.runtime.testing)
-    androidTestImplementation(libs.androidx.test.ext.junit)
+    testImplementation(libs.jupiter)
+    testImplementation(libs.testCoroutine)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ui.test.junit4)
+
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
     kaptTest(libs.hilt.compiler)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    androidTestImplementation(libs.truth)
+
 }

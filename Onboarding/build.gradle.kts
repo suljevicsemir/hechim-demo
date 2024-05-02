@@ -18,7 +18,8 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    testImplementation(libs.mockk)
+    testImplementation(libs.mockAndroid)
+    testImplementation(libs.truth)
+    testImplementation(libs.testCoroutine)
 }

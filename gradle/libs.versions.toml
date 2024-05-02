@@ -2,9 +2,14 @@
 agp = "8.2.0"
 kotlin = "1.9.22"
 core-ktx = "1.13.0"
-junit = "4.13.2"
+junit = "5.8.2"
+junitPlugin = "1.8.2.1"
+junitVersion = "1.1.5"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
+mockk="1.13.7"
+truth="1.1.5"
+coroutineAndroid = "1.7.3"
 lifecycle-runtime-ktx = "2.7.0"
 activity-compose = "1.8.2"
 compose-bom = "2023.08.00"
@@ -20,12 +25,11 @@ ksp = "1.9.10-1.0.13"
 serialization-json = "1.6.0"
 accompanist = "0.35.0-alpha"
 security = "1.1.0-alpha03"
+junit-junit = "4.13.2"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
@@ -42,6 +46,15 @@ annotation = { group = "androidx.annotation", name = "annotation", version.ref =
 
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization-json" }
 
+#Testing
+jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit" }
+jupiter-plugin = { group = "de.mannodermaus.gradle.plugins", name = "android-junit5", version.ref = "junitPlugin" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+mockAndroid = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
+truth= { group = "com.google.truth", name = "truth", version.ref = "truth" }
+testCoroutine = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutineAndroid" }
 
 #Hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
@@ -81,3 +94,4 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
 androidHilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+jupiterPlugin = { id = "de.mannodermaus.android-junit5", version.ref = "junitPlugin" }
