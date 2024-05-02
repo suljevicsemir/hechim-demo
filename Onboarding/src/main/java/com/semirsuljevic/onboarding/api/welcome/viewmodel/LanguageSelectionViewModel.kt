@@ -18,38 +18,65 @@ class LanguageSelectionViewModel @Inject constructor(
 ): ViewModel() {
 
     private val _dialogVisible = mutableStateOf(false)
+    val dialogVisible: Boolean get() = _dialogVisible.value
 
-    val selectedLocale = mutableStateOf<AppLanguageModel?>(null)
+    /**
+        Represents currently selected locale - not the saved one.
+        Necessary to have this because of confirmation dialog, gives info
+        to dialog which language to display.
+        "Are you sure you want to change your language to selectedLocale.value".
+        Basically when language is selected, not confirmed, value to this is assigned.
+     */
 
-    val savedLocale = mutableStateOf(AppLocale.English)
+    private val _selectedLocale = mutableStateOf<AppLanguageModel?>(null)
+    val selectedLocale: AppLanguageModel? get() = _selectedLocale.value
+
+    private val _savedLocale = mutableStateOf(AppLocale.English)
+    val savedLocale: AppLocale get() = _savedLocale.value
+
 
     init {
-        savedLocale.value = secureStorage.getStringValue(SecureStorage.locale).toAppLocale()
+        _savedLocale.value = secureStorage.getStringValue(SecureStorage.locale).toAppLocale()
+        println("saved locale: ${_savedLocale.value}")
     }
 
+    /** Invoked when user selects any language, not confirms.
+        If that language is already saved to be used, nothing happens.
+        If not, sets value of the _selectedLocale and prompts confirmation dialog.
+     */
     fun selectLocale(appLanguageModel: AppLanguageModel) {
-        if(savedLocale.value == appLanguageModel.locale) {
+        if(_savedLocale.value == appLanguageModel.locale) {
             return
         }
-        selectedLocale.value = appLanguageModel
+        _selectedLocale.value = appLanguageModel
         toggleDialog()
     }
 
+    /**
+        Toggle dialog visibility, based way to control if the dialog is visible or not.
+        This way caller has not direct access to boolean flag and logic is hidden.
+     */
     fun toggleDialog() {
         _dialogVisible.value = !_dialogVisible.value
     }
 
+    /**
+        Called from confirmation dialog, we guard are selves with null check, even tho
+        this case should never happen.
+        Saves locale to storage and dismissed dialog.
+     */
     fun confirmLocaleChange() {
-        if(selectedLocale.value == null) {
+        if(_selectedLocale.value == null) {
             return
         }
-        savedLocale.value = selectedLocale.value!!.locale
-        secureStorage.storeStringValue(SecureStorage.locale, savedLocale.value.locale)
+        _savedLocale.value = _selectedLocale.value!!.locale
+        secureStorage.storeStringValue(SecureStorage.locale, _savedLocale.value.locale)
         toggleDialog()
     }
 
-    val dialogVisible: Boolean get() = _dialogVisible.value
-
+    /**
+        Lists of languages to be displayed on the UI.
+     */
     val languages = listOf(
         AppLanguageModel(
             image = R.drawable.ic_language_fr,
@@ -61,11 +88,6 @@ class LanguageSelectionViewModel @Inject constructor(
             text = R.string.app_language_en,
             locale = AppLocale.English
         ),
-        AppLanguageModel(
-            image = R.drawable.ic_language_de,
-            text = R.string.app_language_de,
-            locale = AppLocale.Unsupported
-        )
     )
 
     fun proceed() {

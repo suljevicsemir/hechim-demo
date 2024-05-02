@@ -20,13 +20,17 @@ fun LanguageSelectionRoute(
     languageSelectionViewModel: LanguageSelectionViewModel,
     onContinue: (() -> Unit)? = null
 ) {
+
+    val selected = languageSelectionViewModel.selectedLocale
+
+    println("selected locale: $selected")
     
     LanguageSelectionDialog(
         onDismiss = { languageSelectionViewModel.toggleDialog() },
         onConfirm = { languageSelectionViewModel.confirmLocaleChange() },
         visible = languageSelectionViewModel.dialogVisible,
-        language = if(languageSelectionViewModel.selectedLocale.value == null)
-            "" else stringResource(id = languageSelectionViewModel.selectedLocale.value!!.text)
+        language = if(languageSelectionViewModel.selectedLocale == null)
+            "" else stringResource(id = languageSelectionViewModel.selectedLocale!!.text)
     )
     
     HechimScreen (
@@ -52,7 +56,7 @@ fun LanguageSelectionRoute(
                     onClick = {
                       languageSelectionViewModel.selectLocale(model)
                     },
-                    selected = languageSelectionViewModel.savedLocale.value == model.locale
+                    selected = languageSelectionViewModel.savedLocale == model.locale
                 )
             }
             Spacer(modifier = Modifier.weight(1f))

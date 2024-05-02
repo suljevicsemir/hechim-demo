@@ -11,7 +11,6 @@ class NavigatorImpl @Inject constructor(
 ): Navigator {
     private lateinit var navigator: NavHostController
     override fun setNavController(navController: NavHostController) {
-        println("setting nav controller nibba")
         navigator = navController
     }
 
