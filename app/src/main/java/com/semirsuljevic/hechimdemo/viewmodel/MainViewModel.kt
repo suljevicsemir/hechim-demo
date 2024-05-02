@@ -1,7 +1,6 @@
 package com.semirsuljevic.hechimdemo.viewmodel
 
 import androidx.lifecycle.ViewModel
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.semirsuljevic.ui.api.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel

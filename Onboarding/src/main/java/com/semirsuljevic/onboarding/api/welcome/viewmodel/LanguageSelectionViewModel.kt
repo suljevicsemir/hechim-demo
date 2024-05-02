@@ -1,7 +1,6 @@
 package com.semirsuljevic.onboarding.api.welcome.viewmodel
 
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
 import com.hechimdemo.onboarding.R
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLanguageModel

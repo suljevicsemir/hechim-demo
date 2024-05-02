@@ -9,8 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.hechimdemo.onboarding.R
-import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLanguageModel
-import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLocale
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.LanguageSelectionViewModel
 import com.semirsuljevic.ui.api.buttons.HechimButton
 import com.semirsuljevic.ui.api.screen.HechimScreen

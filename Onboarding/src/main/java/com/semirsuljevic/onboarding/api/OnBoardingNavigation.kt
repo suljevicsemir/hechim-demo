@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.semirsuljevic.onboarding.api.welcome.ui.language.LanguageSelectionRoute
 import com.semirsuljevic.onboarding.api.welcome.ui.OnBoardingRoute
+import com.semirsuljevic.onboarding.api.welcome.ui.language.LanguageSelectionRoute
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.LanguageSelectionViewModel
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.OnBoardingViewModel
 
