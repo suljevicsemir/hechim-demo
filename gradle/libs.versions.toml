@@ -23,13 +23,12 @@ hilt = "2.48.1"
 hiltExt = "1.1.0"
 ksp = "1.9.10-1.0.13"
 serialization-json = "1.6.0"
-accompanist = "0.35.0-alpha"
-security = "1.1.0-alpha03"
+security = "1.1.0-alpha06"
 junit-junit = "4.13.2"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
+junit = { group = "junit", name = "junit", version.ref = "junit-junit" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }

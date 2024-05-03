@@ -6,7 +6,7 @@ import com.hechimdemo.onboarding.R
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLanguageModel
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLocale
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.toAppLocale
-import com.semirsuljevic.storage.api.secure.SecureStorage
+import com.semirsuljevic.foundation.api.secure.SecureStorage
 import com.semirsuljevic.ui.api.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -37,7 +37,6 @@ class LanguageSelectionViewModel @Inject constructor(
 
     init {
         _savedLocale.value = secureStorage.getStringValue(SecureStorage.locale).toAppLocale()
-        println("saved locale: ${_savedLocale.value}")
     }
 
     /** Invoked when user selects any language, not confirms.
@@ -89,9 +88,4 @@ class LanguageSelectionViewModel @Inject constructor(
             locale = AppLocale.English
         ),
     )
-
-    fun proceed() {
-        navigator.navigate("")
-    }
-
 }

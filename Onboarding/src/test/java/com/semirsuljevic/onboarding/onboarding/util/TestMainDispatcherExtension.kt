@@ -1,4 +1,4 @@
-package com.semirsuljevic.foundation.util
+package com.semirsuljevic.onboarding.onboarding.util
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -8,7 +8,6 @@ import kotlinx.coroutines.test.setMain
 import org.junit.jupiter.api.extension.AfterEachCallback
 import org.junit.jupiter.api.extension.BeforeEachCallback
 import org.junit.jupiter.api.extension.ExtensionContext
-
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class TestMainDispatcherExtension : BeforeEachCallback, AfterEachCallback {

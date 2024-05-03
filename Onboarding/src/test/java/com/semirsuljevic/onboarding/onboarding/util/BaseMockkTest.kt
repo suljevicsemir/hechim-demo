@@ -1,4 +1,4 @@
-package com.semirsuljevic.foundation.util
+package com.semirsuljevic.onboarding.onboarding.util
 
 import io.mockk.MockKAnnotations
 import io.mockk.clearAllMocks

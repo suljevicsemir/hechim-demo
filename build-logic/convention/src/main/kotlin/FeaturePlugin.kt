@@ -34,6 +34,7 @@ class FeaturePlugin : Plugin<Project> {
                 add("testImplementation", libs.findLibrary("jupiter").get())
                 add("testImplementation", libs.findLibrary("mockk").get())
                 add("testImplementation", libs.findLibrary("testCoroutine").get())
+                add("androidTestImplementation", libs.findLibrary("jupiter").get())
                 add("androidTestImplementation", libs.findLibrary("mockAndroid").get())
                 add("androidTestImplementation", libs.findLibrary("truth").get())
                 add("androidTestImplementation", libs.findLibrary("androidx.test.ext.junit").get())
