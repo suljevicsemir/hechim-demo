@@ -29,9 +29,8 @@
     <string name="login_username_input_button">CONTINUE</string>
     <string name="login_password_input_title">LOGIN</string>
     <string name="login_password_input_headline">Enter your password</string>
-    <string name="login_password_input_desc_1">"Welcome to Hechim Demo, "</string>
-    <string name="login_password_input_desc_2">To login, please enter your password.</string>
-    <string name="login_password_input_forgot_button">I FORGOT MY PASSWORD</string>
+    <string name="login_password_input_desc_1">"Welcome to Hechim Demo, %1s. To login, please enter your password."</string>
+    <string name="login_password_input_hint">Your password</string>
     <string name="login_password_input_login_button">LOG IN</string>
 
 
