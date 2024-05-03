@@ -39,7 +39,7 @@ fun HechimIconButton(
         Image(
             painter = painterResource(id = icon),
             contentDescription = null,
-            modifier = modifier.align(alignment = Alignment.Center).rotate(180f)
+            modifier = modifier.align(alignment = Alignment.Center)
         )
     }
 }

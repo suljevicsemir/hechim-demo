@@ -28,7 +28,7 @@ fun AppNavigator(
 
     NavHost(
         navController = navController,
-        startDestination = "OnBoarding",
+        startDestination = "Email",
     ) {
         onBoardingNavGraph(viewModelStoreOwner)
     }

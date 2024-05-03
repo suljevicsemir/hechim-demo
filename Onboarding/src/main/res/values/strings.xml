@@ -21,6 +21,19 @@
     <string name="app_language_it" translatable="false">Italiano</string>
     <string name="language_selection_not_supported">Language not supported</string>
 
+    <!--Login-->
+    <string name="login_username_input_title">LOGIN</string>
+    <string name="login_username_input_desc">Please enter the email you want to use with our app.</string>
+    <string name="login_username_input_headline">Enter your username</string>
+    <string name="login_username_input_hint">Your email</string>
+    <string name="login_username_input_button">CONTINUE</string>
+    <string name="login_password_input_title">LOGIN</string>
+    <string name="login_password_input_headline">Enter your password</string>
+    <string name="login_password_input_desc_1">"Welcome to Hechim Demo, "</string>
+    <string name="login_password_input_desc_2">To login, please enter your password.</string>
+    <string name="login_password_input_forgot_button">I FORGOT MY PASSWORD</string>
+    <string name="login_password_input_login_button">LOG IN</string>
+
 
     <string name="common_yes">Yes</string>
     <string name="common_ok">OK</string>

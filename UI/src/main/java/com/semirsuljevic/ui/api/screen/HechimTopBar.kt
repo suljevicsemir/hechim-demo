@@ -1,5 +1,6 @@
 package com.semirsuljevic.ui.api.screen
 
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -23,6 +24,7 @@ fun HechimTopBar(
     colors: TopAppBarColors = TopAppBarDefaults.mediumTopAppBarColors(
         containerColor = HechimTheme.colors.backgroundDefault,
     ),
+    actions: @Composable (RowScope.() -> Unit)? = null,
 ) {
     CenterAlignedTopAppBar(
         title = {
@@ -36,6 +38,11 @@ fun HechimTopBar(
         },
         colors = colors,
         modifier = modifier.padding(horizontal = 18.dp),
+        actions = {
+              if(actions != null) {
+                  actions()
+              }
+        },
         navigationIcon = {
             if (config.canNavigateBack) {
                 HechimIconButton(

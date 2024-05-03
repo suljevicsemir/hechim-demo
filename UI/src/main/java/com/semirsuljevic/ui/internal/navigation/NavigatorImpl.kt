@@ -1,6 +1,7 @@
 package com.semirsuljevic.ui.internal.navigation
 
 import androidx.navigation.NavHostController
+import androidx.navigation.NavOptions
 import com.semirsuljevic.ui.api.navigation.Navigator
 import javax.inject.Inject
 import javax.inject.Singleton

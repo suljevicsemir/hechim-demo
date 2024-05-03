@@ -88,4 +88,8 @@ class LanguageSelectionViewModel @Inject constructor(
             locale = AppLocale.English
         ),
     )
+
+    fun navigateToEmail() {
+        navigator.navigate("Email")
+    }
 }

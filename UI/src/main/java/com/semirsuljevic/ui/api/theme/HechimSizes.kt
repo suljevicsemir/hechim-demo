@@ -12,4 +12,6 @@ object HechimSizes {
     val xxLarge = 32.dp
 
     val scaffoldHorizontal = 20.dp
+
+    val textFieldBorderWidth = 0.25.dp
 }
