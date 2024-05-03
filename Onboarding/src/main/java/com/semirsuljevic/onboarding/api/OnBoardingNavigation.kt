@@ -21,7 +21,6 @@ fun NavGraphBuilder.onBoardingNavGraph(
         LanguageSelectionRoute(
             languageSelectionViewModel,
             onContinue = {
-                languageSelectionViewModel.proceed()
             }
         )
     }

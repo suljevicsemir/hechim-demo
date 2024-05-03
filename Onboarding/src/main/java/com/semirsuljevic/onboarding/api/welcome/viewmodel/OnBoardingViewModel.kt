@@ -19,6 +19,9 @@ class OnBoardingViewModel @Inject constructor(
     private var _selectedIndex = mutableIntStateOf(0)
 
     fun setIndex(index: Int) {
+        if(index >= items.size) {
+            return
+        }
         _selectedIndex.intValue = index
     }
 
