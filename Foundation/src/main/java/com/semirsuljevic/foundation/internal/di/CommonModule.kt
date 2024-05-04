@@ -1,4 +1,4 @@
-package com.semirsuljevic.foundation.interval.di
+package com.semirsuljevic.foundation.internal.di
 
 import android.content.Context
 import dagger.Module

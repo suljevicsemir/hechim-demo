@@ -9,7 +9,7 @@ plugins {
     id("hechimdemo.android.application.compose")
     id("hechimdemo.android.hilt")
     id("de.mannodermaus.android-junit5")
-
+    id("com.google.gms.google-services")
 }
 
 //load signing values into variable, use to create signing config later
