@@ -11,6 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.semirsuljevic.hechimdemo.viewmodel.MainViewModel
 import com.semirsuljevic.onboarding.api.onBoardingNavGraph
+import com.semirsuljevic.onboarding.api.welcome.ui.email.RouteEmail
 
 @Composable
 fun AppNavigator(
@@ -28,7 +29,7 @@ fun AppNavigator(
 
     NavHost(
         navController = navController,
-        startDestination = "Email",
+        startDestination = RouteEmail().path,
     ) {
         onBoardingNavGraph(viewModelStoreOwner)
     }

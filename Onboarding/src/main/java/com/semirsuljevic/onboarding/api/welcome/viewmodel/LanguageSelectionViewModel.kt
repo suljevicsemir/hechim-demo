@@ -7,6 +7,7 @@ import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLanguageModel
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLocale
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.toAppLocale
 import com.semirsuljevic.foundation.api.secure.SecureStorage
+import com.semirsuljevic.onboarding.api.welcome.ui.email.RouteEmail
 import com.semirsuljevic.ui.api.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -90,6 +91,6 @@ class LanguageSelectionViewModel @Inject constructor(
     )
 
     fun navigateToEmail() {
-        navigator.navigate("Email")
+        navigator.navigate(RouteEmail())
     }
 }

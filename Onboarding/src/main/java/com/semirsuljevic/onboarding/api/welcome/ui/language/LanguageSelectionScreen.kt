@@ -11,19 +11,22 @@ import androidx.compose.ui.res.stringResource
 import com.hechimdemo.onboarding.R
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.LanguageSelectionViewModel
 import com.semirsuljevic.ui.api.buttons.HechimButton
+import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.screen.HechimScreen
 import com.semirsuljevic.ui.api.screen.HechimScreenConfig
 import com.semirsuljevic.ui.api.theme.HechimTheme
 
+class RouteLanguageSelection: HechimRoute("language")
+
 @Composable
-fun LanguageSelectionRoute(
+fun LanguageSelectionScreen(
     languageSelectionViewModel: LanguageSelectionViewModel,
     onContinue: (() -> Unit)? = null
 ) {
 
     val selected = languageSelectionViewModel.selectedLocale
 
-    println("selected locale: $selected")
+
     
     LanguageSelectionDialog(
         onDismiss = { languageSelectionViewModel.toggleDialog() },

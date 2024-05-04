@@ -5,6 +5,6 @@ import androidx.navigation.NavHostController
 interface Navigator {
 
     fun setNavController(navController: NavHostController)
-    fun navigate(route: String)
+    fun navigate(route: HechimRoute)
     fun pop()
 }

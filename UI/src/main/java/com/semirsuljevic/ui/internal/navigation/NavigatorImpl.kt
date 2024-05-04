@@ -2,6 +2,7 @@ package com.semirsuljevic.ui.internal.navigation
 
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
+import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.navigation.Navigator
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -15,8 +16,8 @@ class NavigatorImpl @Inject constructor(
         navigator = navController
     }
 
-    override fun navigate(route: String) {
-        navigator.navigate(route)
+    override fun navigate(route: HechimRoute) {
+        navigator.navigate(route.path)
     }
 
     override fun pop() {

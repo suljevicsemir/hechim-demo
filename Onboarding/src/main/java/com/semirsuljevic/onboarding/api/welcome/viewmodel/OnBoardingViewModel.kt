@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.OnBoardingConstants
+import com.semirsuljevic.onboarding.api.welcome.ui.language.RouteLanguageSelection
 import com.semirsuljevic.ui.api.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.withContext
@@ -39,7 +40,7 @@ class OnBoardingViewModel @Inject constructor(
                 pagerState.animateScrollToPage(_selectedIndex.intValue + 1)
                 return@withContext
             }
-            navigator.navigate("Language")
+            navigator.navigate(RouteLanguageSelection())
             //navigate to language selection, set onboarding completed
         }
 
