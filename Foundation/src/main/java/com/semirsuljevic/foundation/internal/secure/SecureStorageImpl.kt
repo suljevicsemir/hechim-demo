@@ -1,4 +1,4 @@
-package com.semirsuljevic.foundation.interval.secure
+package com.semirsuljevic.foundation.internal.secure
 
 import android.content.Context
 import android.content.SharedPreferences

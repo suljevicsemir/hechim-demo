@@ -16,15 +16,19 @@ import com.hechimdemo.onboarding.R
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.LoginEmailViewModel
 import com.semirsuljevic.ui.api.buttons.HechimButton
 import com.semirsuljevic.ui.api.buttons.HechimIconButton
+import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.paging.PageIndexIndicator
 import com.semirsuljevic.ui.api.screen.HechimScreen
 import com.semirsuljevic.ui.api.screen.HechimScreenConfig
 import com.semirsuljevic.ui.api.textfield.HechimTextField
 import com.semirsuljevic.ui.api.theme.HechimTheme
 
+class RouteEmail: HechimRoute("email")
+
 @Composable
-fun EmailRoute(loginEmailViewModel: LoginEmailViewModel) {
+fun EmailScreen(loginEmailViewModel: LoginEmailViewModel) {
     HechimScreen (
+        resource = loginEmailViewModel.resource,
         config = HechimScreenConfig(
             canNavigateBack = false,
             title = stringResource(id = R.string.login_username_input_title)
@@ -73,7 +77,7 @@ fun EmailRoute(loginEmailViewModel: LoginEmailViewModel) {
             Spacer(modifier = Modifier.weight(1f))
             HechimButton(
                 onClick = {
-                  loginEmailViewModel.navigate("Password")
+                  loginEmailViewModel.checkEmail()
                 },
                 text = stringResource(id = R.string.login_username_input_button)
             )
@@ -87,5 +91,5 @@ fun EmailRoute(loginEmailViewModel: LoginEmailViewModel) {
 @Preview
 @Composable
 private fun EmailRoutePreview() {
-    EmailRoute(loginEmailViewModel = hiltViewModel())
+    EmailScreen(loginEmailViewModel = hiltViewModel())
 }

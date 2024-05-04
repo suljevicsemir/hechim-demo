@@ -16,14 +16,17 @@ import com.hechimdemo.onboarding.R
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.LoginViewModel
 import com.semirsuljevic.ui.api.buttons.HechimButton
 import com.semirsuljevic.ui.api.buttons.HechimIconButton
+import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.paging.PageIndexIndicator
 import com.semirsuljevic.ui.api.screen.HechimScreen
 import com.semirsuljevic.ui.api.screen.HechimScreenConfig
 import com.semirsuljevic.ui.api.textfield.HechimTextField
 import com.semirsuljevic.ui.api.theme.HechimTheme
 
+class RouteLogin: HechimRoute("login")
+
 @Composable
-fun LoginRoute(loginViewModel: LoginViewModel) {
+fun LoginScreen(loginViewModel: LoginViewModel) {
 
     HechimScreen (
         config = HechimScreenConfig(
@@ -57,7 +60,7 @@ fun LoginRoute(loginViewModel: LoginViewModel) {
             )
             Spacer(modifier = Modifier.height(HechimTheme.sizes.xLarge))
             Text(
-                stringResource(id = R.string.login_password_input_desc_1).format(""),
+                stringResource(id = R.string.login_password_input_desc_1).format(loginViewModel.email),
                 color = HechimTheme.colors.textDefault,
                 style = HechimTheme.fonts.bodyRegular
             )
@@ -85,5 +88,5 @@ fun LoginRoute(loginViewModel: LoginViewModel) {
 @Preview
 @Composable
 private fun LoginRoutePreview() {
-    LoginRoute(hiltViewModel())
+    LoginScreen(hiltViewModel())
 }

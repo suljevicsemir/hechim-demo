@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalFoundationApi::class)
 
-package com.semirsuljevic.onboarding.api.welcome.ui
+package com.semirsuljevic.onboarding.api.welcome.ui.onboarding
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -25,15 +25,18 @@ import com.hechimdemo.onboarding.R
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.OnBoardingViewModel
 import com.semirsuljevic.onboarding.internal.welcome.PageViewItem
 import com.semirsuljevic.ui.api.buttons.HechimPaddedButton
+import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.paging.PageIndexIndicator
 import com.semirsuljevic.ui.api.screen.HechimScreen
 import com.semirsuljevic.ui.api.screen.HechimScreenConfig
 import com.semirsuljevic.ui.api.theme.HechimTheme
 import kotlinx.coroutines.launch
 
+class RouteOnBoarding: HechimRoute("onboarding/{route}")
+
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingRoute(
+fun OnBoardingScreen(
     onBoardingViewModel: OnBoardingViewModel
 ) {
     val pagerState = rememberPagerState(pageCount = { onBoardingViewModel.items.size})
