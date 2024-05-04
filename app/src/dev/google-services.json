@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "191373586050",
+    "project_id": "hechim-demo-dev",
+    "storage_bucket": "hechim-demo-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191373586050:android:475d2173c400efee920e9b",
+        "android_client_info": {
+          "package_name": "com.semirsuljevic.hechim.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD127RBsTp_xD1VEWVm1lAhqN2gUbIyO3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
