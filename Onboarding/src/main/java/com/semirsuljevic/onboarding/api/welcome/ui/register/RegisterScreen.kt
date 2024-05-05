@@ -1,6 +1,7 @@
-package com.semirsuljevic.onboarding.api.welcome.ui.login
+package com.semirsuljevic.onboarding.api.welcome.ui.register
 
 import androidx.compose.foundation.layout.Column
+
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,10 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.hechimdemo.onboarding.R
-import com.semirsuljevic.onboarding.api.welcome.viewmodel.LoginViewModel
+import com.semirsuljevic.onboarding.api.welcome.viewmodel.RegisterViewModel
 import com.semirsuljevic.ui.api.buttons.HechimButton
 import com.semirsuljevic.ui.api.buttons.HechimIconButton
 import com.semirsuljevic.ui.api.navigation.HechimRoute
@@ -23,24 +22,23 @@ import com.semirsuljevic.ui.api.screen.HechimScreenConfig
 import com.semirsuljevic.ui.api.textfield.HechimTextField
 import com.semirsuljevic.ui.api.theme.HechimTheme
 
-class RouteLogin: HechimRoute("login")
+class RouteRegister:HechimRoute("register")
 
 @Composable
-fun LoginScreen(loginViewModel: LoginViewModel) {
-
+fun RegisterScreen(
+    registerViewModel: RegisterViewModel
+) {
     HechimScreen (
-        resource = loginViewModel.resource,
         config = HechimScreenConfig(
-            title = stringResource(id = R.string.login_password_input_title),
             canNavigateBack = false,
-            errorReset = {
-                loginViewModel.resetState()
-            }
+            title = stringResource(id = R.string.register_title)
         ),
         actions = {
             HechimIconButton(
                 icon = R.drawable.ic_help,
-                onClick = {}
+                onClick = {
+
+                }
             )
         }
     ){
@@ -58,39 +56,39 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
             }
             Spacer(modifier = Modifier.height(HechimTheme.sizes.xLarge))
             Text(
-                stringResource(id = R.string.login_password_input_headline),
+                stringResource(id = R.string.register_headline),
                 color = HechimTheme.colors.textDefault,
                 style = HechimTheme.fonts.bodyLargeNoSpacing
             )
             Spacer(modifier = Modifier.height(HechimTheme.sizes.xLarge))
             Text(
-                stringResource(id = R.string.login_password_input_desc_1).format(loginViewModel.email),
+                stringResource(id = R.string.register_desc),
                 color = HechimTheme.colors.textDefault,
                 style = HechimTheme.fonts.bodyRegular
             )
             Spacer(modifier = Modifier.weight(0.1f))
             HechimTextField(
-                value = loginViewModel.password,
+                value = registerViewModel.password,
                 onValueChange = { password ->
-                    loginViewModel.onPasswordChange(password)
+                    registerViewModel.setPassword(password)
                 },
-                hint = stringResource(id = R.string.login_password_input_hint)
+                hint = stringResource(id = R.string.register_password_hint)
+            )
+            Spacer(modifier = Modifier.height(HechimTheme.sizes.xLarge))
+            HechimTextField(
+                value = registerViewModel.confirmPassword,
+                onValueChange = { confirmPassword ->
+                    registerViewModel.setConfirmPassword(confirmPassword)
+                },
+                hint = stringResource(id = R.string.register_confirm_password_hint)
             )
             Spacer(modifier = Modifier.weight(1f))
             HechimButton(
                 onClick = {
-                    loginViewModel.login()
+                    registerViewModel.register()
                 },
-                text = stringResource(id = R.string.login_password_input_login_button)
+                text = stringResource(id = R.string.register_button)
             )
         }
     }
-}
-
-
-
-@Preview
-@Composable
-private fun LoginRoutePreview() {
-    LoginScreen(hiltViewModel())
 }

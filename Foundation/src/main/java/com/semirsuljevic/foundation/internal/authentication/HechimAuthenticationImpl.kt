@@ -4,13 +4,13 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.Firebase
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.auth
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.Filter
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.firestore
-import com.google.firebase.firestore.ktx.firestore
 
 import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
+import com.semirsuljevic.foundation.api.authentication.model.HechimUser
+import com.semirsuljevic.foundation.api.common.HechimError
+import com.semirsuljevic.foundation.api.common.HechimResource
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -28,15 +28,49 @@ class HechimAuthenticationImpl @Inject constructor(
         return !querySnapshot.isEmpty
     }
 
-    override suspend fun login(email: String, password: String) {
-        val task: Task<AuthResult> = Firebase.auth.signInWithEmailAndPassword(email, password)
-        val authResult: AuthResult = task.await()
+    override suspend fun login(email: String, password: String): HechimResource<HechimUser>{
+        try {
+            val task: Task<AuthResult> = Firebase.auth.signInWithEmailAndPassword(email, password)
+            val authResult: AuthResult = task.await()
+            return if(authResult.user == null) {
+                HechimResource.Error(
+                    HechimError(
+                        message = "Login failed",
+                        buttonTitle = "Try again"
+                    )
+                )
+            }
+            else {
+                HechimResource.Success(
+                    data = HechimUser(
+                        id = authResult.user?.uid ?: "",
+                        email = authResult.user?.uid ?: ""
+                    )
+                )
+
+            }
+        }
+        catch (e: Exception) {
+            return HechimResource.Error(
+                error = HechimError(
+                    message = "Login failed",
+                    buttonTitle = "Try again"
+                )
+            )
+        }
+
     }
 
-    override suspend fun register(email: String, password: String) {
+    override suspend fun register(email: String, password: String): HechimUser? {
         val task: Task<AuthResult> = Firebase.auth.createUserWithEmailAndPassword(email, password)
         val authResult : AuthResult = task.await()
-        println("auth result is: $authResult")
-
+        return if(authResult.user == null)
+            null
+        else {
+            HechimUser(
+                email = authResult.user?.email ?: "",
+                id = authResult.user?.uid ?: ""
+            )
+        }
     }
 }

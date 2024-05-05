@@ -4,8 +4,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
+import com.semirsuljevic.foundation.api.common.HechimResource
 import com.semirsuljevic.onboarding.api.welcome.ui.login.RouteLogin
-import com.semirsuljevic.ui.api.common.HechimResource
+import com.semirsuljevic.onboarding.api.welcome.ui.register.RouteRegister
 import com.semirsuljevic.ui.api.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -18,8 +19,8 @@ class LoginEmailViewModel @Inject constructor(
     private val hechimAuthentication: HechimAuthentication
 ): ViewModel(){
 
-    private val _resource = mutableStateOf<HechimResource<String, Int>>(HechimResource.Nothing(""))
-    val resource: HechimResource<String, Int> get() = _resource.value
+    private val _resource = mutableStateOf<HechimResource<Boolean>>(HechimResource.Nothing(""))
+    val resource: HechimResource<Boolean> get() = _resource.value
 
     private val _email = mutableStateOf("")
     val email: String get() = _email.value
@@ -38,14 +39,8 @@ class LoginEmailViewModel @Inject constructor(
             _resource.value = HechimResource.Loading("Checking your email")
             delay(1000)
             val result = hechimAuthentication.checkEmail(_email.value)
-            if(result) {
-                _resource.value = HechimResource.Nothing("")
-                navigator.navigate(RouteLogin())
-
-                return@launch
-            }
-
-            //navigator.navigate("CreatePassword")
+            _resource.value = HechimResource.Nothing("")
+            navigator.navigate(if(result) RouteLogin() else RouteRegister())
         }
     }
 

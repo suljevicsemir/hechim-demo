@@ -15,5 +15,6 @@ import com.semirsuljevic.ui.api.theme.HechimTheme
 data class HechimScreenConfig(
     val canNavigateBack: Boolean = true,
     val containerColor: Color = HechimTheme.colors.backgroundDefault,
-    val title: String? = null
+    val title: String? = null,
+    val errorReset: (() -> Unit)? = null
 )

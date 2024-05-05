@@ -12,10 +12,13 @@ import com.semirsuljevic.onboarding.api.welcome.ui.language.RouteLanguageSelecti
 import com.semirsuljevic.onboarding.api.welcome.ui.login.LoginScreen
 import com.semirsuljevic.onboarding.api.welcome.ui.login.RouteLogin
 import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoarding
+import com.semirsuljevic.onboarding.api.welcome.ui.register.RegisterScreen
+import com.semirsuljevic.onboarding.api.welcome.ui.register.RouteRegister
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.LanguageSelectionViewModel
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.LoginEmailViewModel
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.LoginViewModel
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.OnBoardingViewModel
+import com.semirsuljevic.onboarding.api.welcome.viewmodel.RegisterViewModel
 
 fun NavGraphBuilder.onBoardingNavGraph(
     viewModelStoreOwner: ViewModelStoreOwner
@@ -44,6 +47,12 @@ fun NavGraphBuilder.onBoardingNavGraph(
         val loginViewModel = viewModel<LoginViewModel>(viewModelStoreOwner)
         loginViewModel.setEmail(loginEmailViewModel.email)
         LoginScreen(loginViewModel = loginViewModel)
+    }
+    composable(route = RouteRegister().path) {
+        val loginEmailViewModel = viewModel<LoginEmailViewModel>(viewModelStoreOwner)
+        val registerViewModel = viewModel<RegisterViewModel>(viewModelStoreOwner)
+        registerViewModel.setEmail(loginEmailViewModel.email)
+        RegisterScreen(registerViewModel = viewModel<RegisterViewModel>(viewModelStoreOwner))
     }
 
 }

@@ -1,7 +1,8 @@
 package com.semirsuljevic.foundation.api.common
 
-sealed interface HechimResource <out T : Any, out U : Any>{
-    data class Success<T: Any>(val date: T) : HechimResource<T, Nothing>
-    data class Error<U: Any>(val response: U) : HechimResource<Nothing, U>
-    data class Loading(val message: String): HechimResource<String, Nothing>
+sealed interface HechimResource <out T : Any>{
+    data class Success<T: Any>(val data: T) : HechimResource<T>
+    data class Error<T: Any>(val error: HechimError) : HechimResource<T>
+    data class Loading<T: Any>(val message: String): HechimResource<T>
+    data class Nothing<T:Any>(val message: String = ""): HechimResource<T>
 }
