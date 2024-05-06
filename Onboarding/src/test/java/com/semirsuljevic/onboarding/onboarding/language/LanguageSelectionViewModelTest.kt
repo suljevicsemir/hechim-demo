@@ -1,6 +1,7 @@
 package com.semirsuljevic.onboarding.onboarding.language
 
 import com.google.common.truth.Truth.assertThat
+import com.semirsuljevic.foundation.api.common.UiText
 import com.semirsuljevic.foundation.api.secure.SecureStorage
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLocale
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.LanguageSelectionViewModel
@@ -93,6 +94,31 @@ internal class LanguageSelectionViewModelTest: BaseMockkTest<LanguageSelectionVi
         assertThat(stub.savedLocale.locale).isEqualTo(AppLocale.French.locale)
 
     }
+
+    @Test
+    fun `test selected locale - dialog value getter`() = runTest(UnconfinedTestDispatcher()){
+        every { secureStorage.getStringValue(SecureStorage.locale) } returns AppLocale.English.locale
+        val stub = createSut()
+
+        //initially should be null
+        assertThat(stub.selectedLocale).isEqualTo(null)
+        //empty
+        assertThat(stub.dialogLanguage).isEqualTo(UiText.StringValue(""))
+
+        //select language
+        stub.selectLocale(stub.languages.first { it.locale == AppLocale.French })
+
+        assertThat((stub.dialogLanguage as UiText.StringResource).resourceId).isEqualTo(
+            stub.languages.first { it.locale == AppLocale.French }.text
+        )
+        stub.confirmLocaleChange()
+
+        stub.selectLocale(stub.languages.first { it.locale == AppLocale.English })
+        assertThat((stub.dialogLanguage as UiText.StringResource).resourceId).isEqualTo(
+            stub.languages.first { it.locale == AppLocale.English }.text
+        )
+    }
+
 
 
 
