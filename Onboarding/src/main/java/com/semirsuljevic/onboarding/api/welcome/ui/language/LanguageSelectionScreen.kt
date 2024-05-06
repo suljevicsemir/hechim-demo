@@ -24,27 +24,24 @@ fun LanguageSelectionScreen(
     onContinue: (() -> Unit)? = null
 ) {
 
-    val selected = languageSelectionViewModel.selectedLocale
-
-
-    
     LanguageSelectionDialog(
         onDismiss = { languageSelectionViewModel.toggleDialog() },
         onConfirm = { languageSelectionViewModel.confirmLocaleChange() },
         visible = languageSelectionViewModel.dialogVisible,
-        language = if(languageSelectionViewModel.selectedLocale == null)
-            "" else stringResource(id = languageSelectionViewModel.selectedLocale!!.text)
+        language = languageSelectionViewModel.dialogLanguage.asString()
     )
     
     HechimScreen (
         config = HechimScreenConfig(
-            title = stringResource(id = R.string.language_selection_title)
+            title = stringResource(id = R.string.language_selection_title),
+            canNavigateBack = false
         )
     ){
         Column (
             modifier = Modifier
                 .padding(it)
                 .padding(horizontal = HechimTheme.sizes.scaffoldHorizontal)
+                .padding(bottom = HechimTheme.sizes.xLarge)
         ){
             Spacer(modifier = Modifier.height(HechimTheme.sizes.medium))
             Text(

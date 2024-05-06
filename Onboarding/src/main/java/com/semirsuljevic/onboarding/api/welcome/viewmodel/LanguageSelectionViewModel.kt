@@ -3,6 +3,7 @@ package com.semirsuljevic.onboarding.api.welcome.viewmodel
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.hechimdemo.onboarding.R
+import com.semirsuljevic.foundation.api.common.UiText
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLanguageModel
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.AppLocale
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.toAppLocale
@@ -93,4 +94,8 @@ class LanguageSelectionViewModel @Inject constructor(
     fun navigateToEmail() {
         navigator.navigate(RouteEmail())
     }
+
+    val dialogLanguage: UiText get() = if(_selectedLocale.value == null)
+        UiText.StringValue("")
+    else UiText.StringResource(_selectedLocale.value!!.text)
 }
