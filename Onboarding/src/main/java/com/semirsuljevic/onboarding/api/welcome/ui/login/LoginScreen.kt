@@ -40,7 +40,9 @@ fun LoginScreen(loginViewModel: LoginViewModel) {
         actions = {
             HechimIconButton(
                 icon = R.drawable.ic_help,
-                onClick = {}
+                onClick = {
+                    loginViewModel.navigate()
+                }
             )
         }
     ){

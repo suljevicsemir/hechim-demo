@@ -7,8 +7,10 @@ import com.semirsuljevic.foundation.api.authentication.CredentialsValidator
 import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
 import com.semirsuljevic.foundation.api.authentication.model.HechimUser
 import com.semirsuljevic.foundation.api.common.HechimResource
+import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoardingPop
 import com.semirsuljevic.ui.api.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,14 +21,14 @@ class RegisterViewModel @Inject constructor(
     private val credentialsValidator: CredentialsValidator
 ): ViewModel(){
 
-    private val _resource = mutableStateOf<HechimResource<HechimUser>>(HechimResource.Nothing(""))
-    val resource = _resource.value
+    private val _resource = mutableStateOf<HechimResource<HechimUser>>(HechimResource.Nothing())
+    val resource get() = _resource.value
 
     private val _password = mutableStateOf("")
-    val password: String = _password.value
+    val password get() = _password.value
 
     private val _confirmPassword = mutableStateOf("")
-    val confirmPassword: String = _confirmPassword.value
+    val confirmPassword get() = _confirmPassword.value
 
     private var _email: String = ""
     fun setEmail(value: String) {
@@ -47,7 +49,8 @@ class RegisterViewModel @Inject constructor(
         }
         viewModelScope.launch {
             _resource.value = HechimResource.Loading("")
-            authentication.register(
+            delay(1000)
+            _resource.value = authentication.register(
                 email = _email,
                 password = _password.value
             )
@@ -60,6 +63,14 @@ class RegisterViewModel @Inject constructor(
             _password.value,
             _confirmPassword.value
         )
+    }
+
+    fun resetState() {
+        _resource.value = HechimResource.Nothing()
+    }
+
+    fun navigate() {
+        navigator.navigate(RouteOnBoardingPop())
     }
 
 }

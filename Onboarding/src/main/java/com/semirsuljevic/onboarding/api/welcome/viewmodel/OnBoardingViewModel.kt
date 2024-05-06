@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.semirsuljevic.onboarding.api.welcome.config.welcome.OnBoardingConstants
 import com.semirsuljevic.onboarding.api.welcome.ui.language.RouteLanguageSelection
+import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.withContext
@@ -40,13 +41,22 @@ class OnBoardingViewModel @Inject constructor(
                 pagerState.animateScrollToPage(_selectedIndex.intValue + 1)
                 return@withContext
             }
-            navigator.navigate(RouteLanguageSelection())
-            //navigate to language selection, set onboarding completed
+            println("tvoj route je: ${_route}")
+            if(_route == null) {
+                navigator.navigate(RouteLanguageSelection())
+                return@withContext
+            }
+            navigator.pop()
         }
-
     }
 
     /** Returns pager screen info for currently selected index. */
     fun pagerItem(index: Int) = items[index]
+
+    private var _route: String? = null
+
+    fun setRoute(value: String?) {
+        _route = value
+    }
 
 }

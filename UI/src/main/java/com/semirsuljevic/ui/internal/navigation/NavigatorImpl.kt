@@ -20,6 +20,10 @@ class NavigatorImpl @Inject constructor(
         navigator.navigate(route.path)
     }
 
+    override fun navigate(path: String) {
+        navigator.navigate(path)
+    }
+
     override fun pop() {
         navigator.navigateUp()
     }

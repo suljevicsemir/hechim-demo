@@ -32,7 +32,8 @@ import com.semirsuljevic.ui.api.screen.HechimScreenConfig
 import com.semirsuljevic.ui.api.theme.HechimTheme
 import kotlinx.coroutines.launch
 
-class RouteOnBoarding: HechimRoute("onboarding/{route}")
+class RouteOnBoarding: HechimRoute("onboarding")
+class RouteOnBoardingPop: HechimRoute("onboarding_pop")
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

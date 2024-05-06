@@ -10,8 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.semirsuljevic.hechimdemo.viewmodel.MainViewModel
-import com.semirsuljevic.onboarding.api.onBoardingNavGraph
-import com.semirsuljevic.onboarding.api.welcome.ui.email.RouteEmail
+import com.semirsuljevic.onboarding.api.welcome.navigation.OnBoardingNavGraph
 
 @Composable
 fun AppNavigator(
@@ -29,8 +28,8 @@ fun AppNavigator(
 
     NavHost(
         navController = navController,
-        startDestination = RouteEmail().path,
+        startDestination = mainViewModel.startDestination.path,
     ) {
-        onBoardingNavGraph(viewModelStoreOwner)
+        OnBoardingNavGraph(viewModelStoreOwner)
     }
 }

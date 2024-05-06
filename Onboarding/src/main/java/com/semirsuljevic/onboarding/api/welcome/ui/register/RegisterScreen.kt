@@ -29,15 +29,19 @@ fun RegisterScreen(
     registerViewModel: RegisterViewModel
 ) {
     HechimScreen (
+        resource = registerViewModel.resource,
         config = HechimScreenConfig(
             canNavigateBack = false,
-            title = stringResource(id = R.string.register_title)
+            title = stringResource(id = R.string.register_title),
+            errorReset = {
+                registerViewModel.resetState()
+            }
         ),
         actions = {
             HechimIconButton(
                 icon = R.drawable.ic_help,
                 onClick = {
-
+                    registerViewModel.navigate()
                 }
             )
         }

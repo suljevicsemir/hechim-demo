@@ -37,7 +37,7 @@ fun EmailScreen(loginEmailViewModel: LoginEmailViewModel) {
             HechimIconButton(
                 icon = R.drawable.ic_help,
                 onClick = {
-                    loginEmailViewModel.navigate("OnBoarding")
+                    loginEmailViewModel.navigate()
                 }
             )
         }

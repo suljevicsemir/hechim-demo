@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
 import com.semirsuljevic.foundation.api.authentication.model.HechimUser
 import com.semirsuljevic.foundation.api.common.HechimResource
+import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoardingPop
 import com.semirsuljevic.ui.api.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -34,8 +35,6 @@ class LoginViewModel @Inject constructor(
         _password.value = value
     }
 
-
-
     fun login() {
         viewModelScope.launch {
             _resource.value = HechimResource.Loading("Loggin you in")
@@ -49,5 +48,9 @@ class LoginViewModel @Inject constructor(
 
     fun resetState() {
         _resource.value = HechimResource.Nothing()
+    }
+
+    fun navigate() {
+        navigator.navigate(RouteOnBoardingPop())
     }
 }

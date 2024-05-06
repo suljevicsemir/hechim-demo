@@ -6,6 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
 import com.semirsuljevic.foundation.api.common.HechimResource
 import com.semirsuljevic.onboarding.api.welcome.ui.login.RouteLogin
+import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoarding
+import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoardingPop
 import com.semirsuljevic.onboarding.api.welcome.ui.register.RouteRegister
 import com.semirsuljevic.ui.api.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -44,7 +46,7 @@ class LoginEmailViewModel @Inject constructor(
         }
     }
 
-    fun navigate(route: String) {
-        //navigator.navigate(route)
+    fun navigate() {
+        navigator.navigate(RouteOnBoardingPop())
     }
 }

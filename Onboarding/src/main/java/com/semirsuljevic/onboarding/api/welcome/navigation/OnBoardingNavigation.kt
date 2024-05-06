@@ -1,4 +1,4 @@
-package com.semirsuljevic.onboarding.api
+package com.semirsuljevic.onboarding.api.welcome.navigation
 
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -12,6 +12,7 @@ import com.semirsuljevic.onboarding.api.welcome.ui.language.RouteLanguageSelecti
 import com.semirsuljevic.onboarding.api.welcome.ui.login.LoginScreen
 import com.semirsuljevic.onboarding.api.welcome.ui.login.RouteLogin
 import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoarding
+import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoardingPop
 import com.semirsuljevic.onboarding.api.welcome.ui.register.RegisterScreen
 import com.semirsuljevic.onboarding.api.welcome.ui.register.RouteRegister
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.LanguageSelectionViewModel
@@ -20,12 +21,17 @@ import com.semirsuljevic.onboarding.api.welcome.viewmodel.LoginViewModel
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.OnBoardingViewModel
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.RegisterViewModel
 
-fun NavGraphBuilder.onBoardingNavGraph(
+fun NavGraphBuilder.OnBoardingNavGraph(
     viewModelStoreOwner: ViewModelStoreOwner
 ) {
     composable(route = RouteOnBoarding().path) {
-        val route: String? = it.arguments?.getString("route")
         val onBoardingViewModel = viewModel<OnBoardingViewModel>(viewModelStoreOwner)
+        onBoardingViewModel.setRoute(null)
+        OnBoardingScreen(onBoardingViewModel)
+    }
+    composable(route = RouteOnBoardingPop().path) {
+        val onBoardingViewModel = viewModel<OnBoardingViewModel>(viewModelStoreOwner)
+        onBoardingViewModel.setRoute("xdLol")
 
         OnBoardingScreen(onBoardingViewModel)
     }

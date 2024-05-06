@@ -47,7 +47,6 @@ class HechimAuthenticationImpl @Inject constructor(
                         email = authResult.user?.uid ?: ""
                     )
                 )
-
             }
         }
         catch (e: Exception) {
@@ -58,19 +57,55 @@ class HechimAuthenticationImpl @Inject constructor(
                 )
             )
         }
+    }
+
+    private suspend fun storeUser(
+        email: String,
+        id: String
+    ) {
+        val task: Task<Void> = Firebase.firestore
+            .collection("users")
+            .document(id)
+            .set(mapOf(
+                    "email" to email,
+                )
+            )
+        task.await()
 
     }
 
-    override suspend fun register(email: String, password: String): HechimUser? {
-        val task: Task<AuthResult> = Firebase.auth.createUserWithEmailAndPassword(email, password)
-        val authResult : AuthResult = task.await()
-        return if(authResult.user == null)
-            null
-        else {
-            HechimUser(
-                email = authResult.user?.email ?: "",
-                id = authResult.user?.uid ?: ""
+    override suspend fun register(email: String, password: String): HechimResource<HechimUser> {
+        try {
+            val task: Task<AuthResult> = Firebase.auth.createUserWithEmailAndPassword(email, password)
+            val authResult : AuthResult = task.await()
+            return if(authResult.user == null)
+                HechimResource.Error(
+                    HechimError(
+                        message = "Login failed",
+                        buttonTitle = "Try again"
+                    )
+                )
+            else {
+                storeUser(
+                    email = email,
+                    id = authResult.user?.uid ?: ""
+                )
+                return HechimResource.Success(
+                    data = HechimUser(
+                        id = authResult.user?.uid ?: "",
+                        email = authResult.user?.uid ?: ""
+                    )
+                )
+            }
+        }
+        catch (e: Exception) {
+            return HechimResource.Error(
+                HechimError(
+                    message = "Login failed",
+                    buttonTitle = "Try again"
+                )
             )
         }
+
     }
 }
