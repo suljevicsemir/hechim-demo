@@ -41,7 +41,6 @@ class OnBoardingViewModel @Inject constructor(
                 pagerState.animateScrollToPage(_selectedIndex.intValue + 1)
                 return@withContext
             }
-            println("tvoj route je: ${_route}")
             if(_route == null) {
                 navigator.navigate(RouteLanguageSelection())
                 return@withContext
