@@ -52,8 +52,18 @@ class OnBoardingViewModel @Inject constructor(
     /** Returns pager screen info for currently selected index. */
     fun pagerItem(index: Int) = items[index]
 
+    /**
+        Field to indicate where to navigate after reaching the last item.
+        OnBoarding Page view can be triggered from multiple places.
+        In all cases but one, we just pop the onboarding screen (login, register, email).
+        If the onboarding screen is the first screen we navigate to language selection,
+        otherwise we just pop it.
+     */
     private var _route: String? = null
 
+    /**
+        Sets route to navigate after completing Page view or pop.
+     */
     fun setRoute(value: String?) {
         _route = value
     }
