@@ -44,7 +44,7 @@ class RegisterViewModel @Inject constructor(
     }
 
     fun register() {
-        if(!validatePasswords()) {
+        if(!credentialsValidator.validatePasswords(_password.value, _confirmPassword.value)) {
             return
         }
         viewModelScope.launch {
@@ -55,14 +55,6 @@ class RegisterViewModel @Inject constructor(
                 password = _password.value
             )
         }
-    }
-
-    private fun validatePasswords(): Boolean{
-        return credentialsValidator.validatePassword(_password.value)
-            && credentialsValidator.validateConfirmPassword(
-            _password.value,
-            _confirmPassword.value
-        )
     }
 
     fun resetState() {
