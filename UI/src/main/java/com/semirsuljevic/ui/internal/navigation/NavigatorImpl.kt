@@ -8,9 +8,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class NavigatorImpl @Inject constructor(
-
-): Navigator {
+class NavigatorImpl @Inject constructor(): Navigator {
     private lateinit var navigator: NavHostController
     override fun setNavController(navController: NavHostController) {
         navigator = navController
