@@ -20,7 +20,13 @@ class FeaturePlugin : Plugin<Project> {
                 }
                 configureBuildType(this)
                 configureProjectFlavor(this)
+
+                packaging {
+                    resources.excludes.add("META-INF/*")
+                }
             }
+
+
 
             dependencies {
                 // add("implementation", libs.findLibrary("lifecycle.runtimeCompose").get())
