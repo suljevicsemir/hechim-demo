@@ -16,8 +16,8 @@ internal class PermissionsNavigatorImpl @Inject constructor(
 
     /**
      * @param permissions - list of permissions which are prompted to user
-    if all permissions are granted navigates to Home, otherwise populates routes
-    and navigates to first one
+        if all permissions are granted navigates to Home, otherwise populates routes
+        and navigates to first one
      */
     override suspend fun setRoutes(permissions: List<String>) {
         if(permissions.isEmpty()) {
@@ -35,7 +35,7 @@ internal class PermissionsNavigatorImpl @Inject constructor(
     }
 
     /**
-    Navigates to next permission in order, or to Home page if no permissions are present.
+        Navigates to next permission in order, or to Home page if no permissions are present.
      */
     override suspend fun next() {
         if(routes.isEmpty()) {
