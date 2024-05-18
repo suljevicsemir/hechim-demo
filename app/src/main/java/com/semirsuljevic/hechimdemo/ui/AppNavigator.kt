@@ -12,6 +12,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.hechimdemo.dashboard.api.navigation.DashboardNavGraph
 import com.semirsuljevic.hechimdemo.viewmodel.MainViewModel
 import com.semirsuljevic.onboarding.api.permissions.navigation.permissionsNavGraph
 import com.semirsuljevic.onboarding.api.permissions.viewmodel.PermissionViewModel
@@ -58,6 +59,7 @@ fun AppNavigator(
     ) {
         OnBoardingNavGraph(viewModelStoreOwner)
         permissionsNavGraph(viewModelStoreOwner)
+        DashboardNavGraph(viewModelStoreOwner)
     }
 
     TrapdoorScreen(

@@ -21,5 +21,7 @@ object HechimFonts {
 
     val hint = TextStyle(fontSize = 15.sp, fontWeight = FontWeight.W400)
 
+    val labelXSmall = TextStyle(fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+
 
 }

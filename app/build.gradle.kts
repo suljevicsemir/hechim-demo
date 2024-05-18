@@ -114,6 +114,7 @@ dependencies {
     implementation(project(":Foundation"))
     implementation(project(":Onboarding"))
     implementation(project(":UI"))
+    implementation(project(":Dashboard"))
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)

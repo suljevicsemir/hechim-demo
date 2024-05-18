@@ -30,12 +30,18 @@ import com.semirsuljevic.ui.api.theme.HechimTheme
 fun HechimScreen(
     config: HechimScreenConfig = HechimScreenConfig(),
     useTopBar : Boolean = true,
+    bottomBar: (@Composable () -> Unit)? = null,
     resource: HechimResource<Any>? = null,
     actions: @Composable (RowScope.() -> Unit)? = null,
     content: @Composable (PaddingValues) -> Unit,
 ) {
     Scaffold (
         containerColor = config.containerColor,
+        bottomBar = {
+            if(bottomBar != null) {
+                bottomBar()
+            }
+        },
         topBar = {
             if(!useTopBar) {
                 return@Scaffold
