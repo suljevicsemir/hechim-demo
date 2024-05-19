@@ -14,9 +14,9 @@ import com.semirsuljevic.foundation.api.common.HechimResource
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
-class HechimAuthenticationImpl @Inject constructor(
+class HechimAuthenticationFirebase @Inject constructor(): HechimAuthentication{
+    override fun isAuthenticated() = Firebase.auth.currentUser != null
 
-): HechimAuthentication{
     override suspend fun checkEmail(email: String): Boolean{
         val task: Task<QuerySnapshot> = Firebase.firestore
             .collection("users")

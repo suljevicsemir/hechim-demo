@@ -8,12 +8,15 @@ import com.hechimdemo.dashboard.api.ui.DashboardNavBar
 import com.hechimdemo.dashboard.api.ui.RouteDashboard
 import com.hechimdemo.dashboard.api.viewmodel.DashboardViewModel
 
-fun NavGraphBuilder.DashboardNavGraph(
-    viewModelStoreOwner: ViewModelStoreOwner
+fun NavGraphBuilder.dashboardNavGraph(
+    viewModelStoreOwner: ViewModelStoreOwner,
+    trapdoorCallback: () -> Unit
 ) {
     composable(route = RouteDashboard().path) {
         val viewModel = viewModel<DashboardViewModel>(viewModelStoreOwner)
-
-        DashboardNavBar(viewModel = viewModel)
+        DashboardNavBar(
+            viewModel = viewModel,
+            trapdoorCallback = trapdoorCallback
+        )
     }
 }

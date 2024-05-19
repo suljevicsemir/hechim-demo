@@ -2,6 +2,7 @@ package com.semirsuljevic.hechimdemo.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
+import com.hechimdemo.dashboard.api.ui.RouteDashboard
 import com.semirsuljevic.onboarding.api.welcome.ui.email.RouteEmail
 import com.semirsuljevic.onboarding.api.welcome.ui.language.RouteLanguageSelection
 import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoarding
@@ -15,9 +16,9 @@ class MainViewModel @Inject constructor(
     private val navigator: Navigator
 ): ViewModel(){
 
-
-    fun setNavigator(navController: NavHostController) {
+    fun setupNavigation(navController: NavHostController) {
         navigator.setNavController(navController)
+        navigator.setHome(RouteDashboard().path)
     }
 
     val startDestination : HechimRoute get() {

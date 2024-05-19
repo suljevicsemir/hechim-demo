@@ -24,7 +24,7 @@ internal class PermissionsNavigatorImpl @Inject constructor(
             //set permissions completed
             permissionRequestsProvider.setPermissionsFinished()
             //navigate to home
-            //navigator.navigateHome()
+            navigator.navigateHome()
             return
         }
         routes.clear()
@@ -40,8 +40,7 @@ internal class PermissionsNavigatorImpl @Inject constructor(
     override suspend fun next() {
         if(routes.isEmpty()) {
             permissionRequestsProvider.setPermissionsFinished()
-            //navigate to home
-            //navigator.navigateHome()
+            navigator.navigateHome()
             return
         }
         navigator.navigate(routes.first())

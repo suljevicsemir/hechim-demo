@@ -1,10 +1,8 @@
 package com.semirsuljevic.foundation
 
 import com.semirsuljevic.foundation.internal.authentication.CredentialsValidatorImpl
-import com.semirsuljevic.foundation.internal.authentication.HechimAuthenticationImpl
 import org.junit.jupiter.api.Test
 import kotlin.test.assertFalse
-import kotlin.test.fail
 
 internal class CredentialsValidatorTest {
     private fun createStub() = CredentialsValidatorImpl()

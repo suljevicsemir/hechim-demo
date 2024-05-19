@@ -1,5 +1,6 @@
 package com.semirsuljevic.ui.internal.navigation
 
+import android.content.res.Resources.NotFoundException
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
 import com.semirsuljevic.ui.api.navigation.HechimRoute
@@ -10,6 +11,7 @@ import javax.inject.Singleton
 @Singleton
 class NavigatorImpl @Inject constructor(): Navigator {
     private lateinit var navigator: NavHostController
+    private var homePath: String = ""
     override fun setNavController(navController: NavHostController) {
         navigator = navController
     }
@@ -24,5 +26,16 @@ class NavigatorImpl @Inject constructor(): Navigator {
 
     override fun pop() {
         navigator.navigateUp()
+    }
+
+    override fun setHome(path: String) {
+        homePath = path
+    }
+
+    override fun navigateHome() {
+        if(homePath.isEmpty()) {
+            throw NotFoundException("Home path not set, call setHome() before using navigateHome()")
+        }
+        navigator.navigate(homePath)
     }
 }
