@@ -3,6 +3,7 @@ package com.semirsuljevic.hechimdemo.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.hechimdemo.dashboard.api.ui.RouteDashboard
+import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
 import com.semirsuljevic.onboarding.api.welcome.ui.email.RouteEmail
 import com.semirsuljevic.onboarding.api.welcome.ui.language.RouteLanguageSelection
 import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoarding
@@ -13,7 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val navigator: Navigator
+    private val navigator: Navigator,
+    private val hechimAuthentication: HechimAuthentication
 ): ViewModel(){
 
     fun setupNavigation(navController: NavHostController) {
@@ -22,7 +24,9 @@ class MainViewModel @Inject constructor(
     }
 
     val startDestination : HechimRoute get() {
-        val onBoarding = RouteOnBoarding()
-        return onBoarding
+        if(hechimAuthentication.isAuthenticated()) {
+            return RouteDashboard()
+        }
+        return RouteOnBoarding()
     }
 }

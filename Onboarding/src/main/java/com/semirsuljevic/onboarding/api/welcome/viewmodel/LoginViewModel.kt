@@ -43,6 +43,9 @@ class LoginViewModel @Inject constructor(
                 email = _email,
                 password = _password.value
             )
+            if(_resource.value is HechimResource.Success) {
+                navigator.navigateHome()
+            }
         }
     }
 

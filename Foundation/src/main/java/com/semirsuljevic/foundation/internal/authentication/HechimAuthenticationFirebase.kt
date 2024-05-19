@@ -86,6 +86,7 @@ class HechimAuthenticationFirebase @Inject constructor(): HechimAuthentication{
                     )
                 )
             else {
+                login(email, password)
                 storeUser(
                     email = email,
                     id = authResult.user?.uid ?: ""
