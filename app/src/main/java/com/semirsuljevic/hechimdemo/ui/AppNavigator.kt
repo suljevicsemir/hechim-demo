@@ -3,8 +3,6 @@ package com.semirsuljevic.hechimdemo.ui
 import androidx.activity.ComponentActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelStoreOwner
@@ -12,12 +10,12 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.hechimdemo.dashboard.api.navigation.DashboardNavGraph
+import com.hechimdemo.dashboard.api.navigation.dashboardNavGraph
 import com.semirsuljevic.hechimdemo.viewmodel.MainViewModel
 import com.semirsuljevic.onboarding.api.permissions.navigation.permissionsNavGraph
 import com.semirsuljevic.onboarding.api.permissions.viewmodel.PermissionViewModel
 import com.semirsuljevic.onboarding.api.trapdoor.viewmodel.TrapdoorViewModel
-import com.semirsuljevic.onboarding.api.welcome.navigation.OnBoardingNavGraph
+import com.semirsuljevic.onboarding.api.welcome.navigation.onBoardingNavGraph
 import com.semirsuljevic.onboarding.internal.trapdoor.TrapdoorScreen
 import com.semirsuljevic.ui.api.common.ComposableLifecycle
 
@@ -45,21 +43,27 @@ fun AppNavigator(
         }
     }
 
-    println("trapdoor is: ${trapdoorViewModel.trapdoorConfig.value}")
+
 
 
 
     LaunchedEffect(Unit) {
-        mainViewModel.setNavigator(navController)
+        mainViewModel.setupNavigation(navController)
+
     }
 
     NavHost(
         navController = navController,
         startDestination = mainViewModel.startDestination.path,
     ) {
-        OnBoardingNavGraph(viewModelStoreOwner)
+        onBoardingNavGraph(viewModelStoreOwner)
         permissionsNavGraph(viewModelStoreOwner)
-        DashboardNavGraph(viewModelStoreOwner)
+        dashboardNavGraph(
+            viewModelStoreOwner,
+            trapdoorCallback = {
+                trapdoorViewModel.checkTrapdoorPermission()
+            }
+        )
     }
 
     TrapdoorScreen(

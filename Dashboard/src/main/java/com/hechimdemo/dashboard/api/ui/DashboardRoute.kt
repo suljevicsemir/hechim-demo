@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -26,8 +27,13 @@ class RouteDashboard:HechimRoute("dashboard")
 @Composable
 fun DashboardNavBar(
     navController: NavHostController = rememberNavController(),
-    viewModel: DashboardViewModel
+    viewModel: DashboardViewModel,
+    trapdoorCallback: () -> Unit
 ) {
+
+    LaunchedEffect(Unit) {
+
+    }
 
     HechimScreen (
         bottomBar = {

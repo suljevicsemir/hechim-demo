@@ -21,7 +21,7 @@ import com.semirsuljevic.onboarding.api.welcome.viewmodel.LoginViewModel
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.OnBoardingViewModel
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.RegisterViewModel
 
-fun NavGraphBuilder.OnBoardingNavGraph(
+fun NavGraphBuilder.onBoardingNavGraph(
     viewModelStoreOwner: ViewModelStoreOwner
 ) {
     composable(route = RouteOnBoarding().path) {
@@ -60,5 +60,4 @@ fun NavGraphBuilder.OnBoardingNavGraph(
         registerViewModel.setEmail(loginEmailViewModel.email)
         RegisterScreen(registerViewModel = viewModel<RegisterViewModel>(viewModelStoreOwner))
     }
-
 }

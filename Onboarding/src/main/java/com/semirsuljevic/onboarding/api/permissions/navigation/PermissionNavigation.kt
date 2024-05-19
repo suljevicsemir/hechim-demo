@@ -13,62 +13,57 @@ import com.semirsuljevic.onboarding.internal.permissions.PermissionRoute
 import com.semirsuljevic.onboarding.internal.permissions.PermissionType
 
 fun NavGraphBuilder.permissionsNavGraph(viewModelStoreOwner: ViewModelStoreOwner) {
-    navigation(
-        route = RouteEmail().path,
-        startDestination = PermissionRoute(PermissionType.LocationWhileInUse).path,
-    ) {
-        composable(PermissionRoute(PermissionType.ActivityRecognition).path) { entry ->
-            PermissionScreen(
-                permission = PermissionConstants.activityRecognition,
-                viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
-            )
-        }
-        composable(PermissionRoute(PermissionType.Notification).path) { entry ->
-            PermissionScreen(
-                permission = PermissionConstants.notification,
-                viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
-            )
-        }
-        composable(PermissionRoute(PermissionType.Bluetooth).path) { entry ->
-            PermissionScreen(
-                permission = PermissionConstants.bluetooth,
-                viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
-            )
-        }
-        composable(PermissionRoute(PermissionType.LocationWhileInUse).path) { entry ->
-            PermissionScreen(
-                permission = PermissionConstants.locationAndroid10,
-                viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
-            )
+    composable(PermissionRoute(PermissionType.ActivityRecognition).path) { entry ->
+        PermissionScreen(
+            permission = PermissionConstants.activityRecognition,
+            viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
+        )
+    }
+    composable(PermissionRoute(PermissionType.Notification).path) { entry ->
+        PermissionScreen(
+            permission = PermissionConstants.notification,
+            viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
+        )
+    }
+    composable(PermissionRoute(PermissionType.Bluetooth).path) { entry ->
+        PermissionScreen(
+            permission = PermissionConstants.bluetooth,
+            viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
+        )
+    }
+    composable(PermissionRoute(PermissionType.LocationWhileInUse).path) { entry ->
+        PermissionScreen(
+            permission = PermissionConstants.locationAndroid10,
+            viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
+        )
 
-        }
-        composable(PermissionRoute(PermissionType.BackgroundLocation).path) { entry ->
-            PermissionScreen(
-                permission = PermissionConstants.locationAndroid10,
-                viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
-            )
-        }
+    }
+    composable(PermissionRoute(PermissionType.BackgroundLocation).path) { entry ->
+        PermissionScreen(
+            permission = PermissionConstants.locationAndroid10,
+            viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
+        )
+    }
 
-        composable(PermissionRoute(PermissionType.LocationWhileInUse).path) { entry ->
-            PermissionScreen(
-                permission = PermissionConstants.locationWhileInUse,
-                viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
-            )
-        }
+    composable(PermissionRoute(PermissionType.LocationWhileInUse).path) { entry ->
+        PermissionScreen(
+            permission = PermissionConstants.locationWhileInUse,
+            viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
+        )
+    }
 
-        composable(PermissionRoute(PermissionType.Location).path) { entry ->
-            PermissionScreen(
-                permission = PermissionConstants.location9,
-                viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
-            )
-        }
+    composable(PermissionRoute(PermissionType.Location).path) { entry ->
+        PermissionScreen(
+            permission = PermissionConstants.location9,
+            viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
+        )
+    }
 
-        composable(PermissionRoute(PermissionType.BatteryOptimization).path) { entry ->
-            PermissionScreen(
-                permission = PermissionConstants.batteryOptimisation,
-                viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
-            )
-        }
+    composable(PermissionRoute(PermissionType.BatteryOptimization).path) { entry ->
+        PermissionScreen(
+            permission = PermissionConstants.batteryOptimisation,
+            viewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
+        )
     }
 }
 
