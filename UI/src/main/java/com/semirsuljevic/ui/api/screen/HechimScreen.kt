@@ -29,7 +29,6 @@ import com.semirsuljevic.ui.api.theme.HechimTheme
 @Composable
 fun HechimScreen(
     config: HechimScreenConfig = HechimScreenConfig(),
-    useTopBar : Boolean = true,
     bottomBar: (@Composable () -> Unit)? = null,
     resource: HechimResource<Any>? = null,
     actions: @Composable (RowScope.() -> Unit)? = null,
@@ -43,7 +42,7 @@ fun HechimScreen(
             }
         },
         topBar = {
-            if(!useTopBar) {
+            if(!config.canNavigateBack) {
                 return@Scaffold
             }
             HechimTopBar(

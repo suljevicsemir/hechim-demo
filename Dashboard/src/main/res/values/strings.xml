@@ -2,6 +2,21 @@
 <resources>
     <string name="dashboard_item_home">Home</string>
     <string name="dashboard_item_profile">Profile</string>
-    <string name="dashboard_item_more">More</string>
+    <string name="dashboard_item_more">Settings</string>
     <string name="dashboard_item_workouts">Workouts</string>
+
+    <string name="settings_profile_title">User profile</string>
+    <string name="settings_profile_desc">View your profile data</string>
+
+    <string name="settings_app_settings_title">Application settings</string>
+    <string name="settings_app_settings_desc">Adjust app settings</string>
+
+    <string name="settings_legal_title">Legal information</string>
+    <string name="settings_legal_desc">Read legal documents</string>
+
+    <string name="settings_about_title">About Eugen</string>
+    <string name="settings_about_desc">More info about the app</string>
+
+    <string name="settings_log_out_title">Log out</string>
+    <string name="settings_log_out_desc">Sign out of the application</string>
 </resources>
