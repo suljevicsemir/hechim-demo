@@ -1,18 +1,32 @@
 package com.hechimdemo.dashboard.api.more.ui
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import com.hechimdemo.dashboard.R
+import com.hechimdemo.dashboard.api.about.ui.RouteAboutUs
 import com.semirsuljevic.foundation.api.common.UiText
 import com.semirsuljevic.ui.api.common.HechimListItem
 import com.semirsuljevic.ui.api.common.HechimListItemConfig
+import com.semirsuljevic.ui.api.navigation.HechimRoute
+import com.semirsuljevic.ui.api.theme.HechimTheme
 
 @Composable
 fun DashboardMoreRoute(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onItemTap: (HechimRoute) -> Unit
 ) {
-   Column {
+   Column (
+       horizontalAlignment = Alignment.CenterHorizontally
+   ){
+       Text(
+           UiText.StringResource(R.string.settings_title).asString(),
+           style = HechimTheme.fonts.pageTitleAlt,
+           color = HechimTheme.colors.textDefault
+       )
        HechimListItem(
            config = HechimListItemConfig(
                title = UiText.StringResource(R.string.settings_profile_title),
@@ -45,11 +59,11 @@ fun DashboardMoreRoute(
        )
        HechimListItem(
            config = HechimListItemConfig(
-               title = UiText.StringResource(R.string.settings_about_title),
+               title = UiText.StringResource(R.string.settings_about_title, "FitnessPal"),
                description = UiText.StringResource(R.string.settings_about_desc),
                icon = R.drawable.ic_about_app,
                onClick = {
-
+                   onItemTap(RouteAboutUs())
                }
            )
        )

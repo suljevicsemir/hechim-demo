@@ -27,11 +27,11 @@ fun HechimHtmlText(
     modifier: Modifier = Modifier,
     style: TextStyle = TextStyle(
         color = HechimTheme.colors.textDefault,
-        fontSize = 12.sp
+        fontSize = 14.sp
     ),
     hyperlinkStyle: TextStyle = TextStyle(
         color = HechimTheme.colors.textDefault,
-        fontSize = 12.sp,
+        fontSize = 13.sp,
         textDecoration = TextDecoration.Underline
     ),
     softWrap: Boolean = true,

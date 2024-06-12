@@ -14,9 +14,14 @@
     <string name="settings_legal_title">Legal information</string>
     <string name="settings_legal_desc">Read legal documents</string>
 
-    <string name="settings_about_title">About Eugen</string>
+    <string name="settings_about_title">About %1s</string>
     <string name="settings_about_desc">More info about the app</string>
 
     <string name="settings_log_out_title">Log out</string>
     <string name="settings_log_out_desc">Sign out of the application</string>
+
+    <string name="settings_title">Settings</string>
+
+
+    <string name="about_page_title">About</string>
 </resources>

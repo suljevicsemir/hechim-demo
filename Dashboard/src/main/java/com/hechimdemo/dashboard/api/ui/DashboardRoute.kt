@@ -85,7 +85,11 @@ fun DashboardNavBar(
                 }
             }
             composable(DashboardMoreItem.route) {
-                DashboardMoreRoute()
+                DashboardMoreRoute(
+                    onItemTap = { route ->
+                        viewModel.onItemTap(route)
+                    }
+                )
             }
             composable(DashboardWorkoutsItem.route) {
                 Column (
