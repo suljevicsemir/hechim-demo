@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.hechimdemo.dashboard.R
 import com.hechimdemo.dashboard.api.about.ui.RouteAboutUs
+import com.hechimdemo.dashboard.api.appSettings.ui.RouteApplicationSettings
 import com.hechimdemo.dashboard.api.legal.ui.RouteLegal
 import com.semirsuljevic.foundation.api.common.UiText
 import com.semirsuljevic.ui.api.common.HechimListItem
@@ -43,9 +44,7 @@ fun DashboardMoreRoute(
                title = UiText.StringResource(R.string.settings_app_settings_title),
                description = UiText.StringResource(R.string.settings_app_settings_desc),
                icon = R.drawable.ic_app_settings,
-               onClick = {
-
-               }
+               onClick = {onItemTap.invoke(RouteApplicationSettings())}
            )
        )
        HechimListItem(

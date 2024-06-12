@@ -21,7 +21,8 @@ class RouteLanguageSelection: HechimRoute("language")
 @Composable
 fun LanguageSelectionScreen(
     languageSelectionViewModel: LanguageSelectionViewModel,
-    onContinue: (() -> Unit)? = null
+    onContinue: (() -> Unit)? = null,
+    canNavigateBack: Boolean = false
 ) {
 
     LanguageSelectionDialog(
@@ -34,7 +35,7 @@ fun LanguageSelectionScreen(
     HechimScreen (
         config = HechimScreenConfig(
             title = stringResource(id = R.string.language_selection_title),
-            canNavigateBack = false
+            canNavigateBack = canNavigateBack
         )
     ){
         Column (
@@ -60,14 +61,16 @@ fun LanguageSelectionScreen(
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
-            if(onContinue != null) {
-                HechimButton(
+            HechimButton(
                 onClick = {
-                    onContinue()
+                    if(onContinue != null){
+                        onContinue()
+                        return@HechimButton
+                    }
+                    languageSelectionViewModel.pop()
                 },
                 text = "Continue"
-                )
-            }
+            )
         }
     }
 }

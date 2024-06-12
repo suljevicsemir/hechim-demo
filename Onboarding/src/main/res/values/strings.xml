@@ -12,7 +12,7 @@
 
     <!--Language Selection screen-->
     <string name="language_selection_title">LANGUAGE SELECTION</string>
-    <string name="language_selection_page_desc">Please select the language for the Eugen app user interface.</string>
+    <string name="language_selection_page_desc">Please select the language for the Fitness app user interface.</string>
     <string name="language_selection_alert_title">Confirm language change</string>
     <string name="language_selection_alert_content">Are you sure you want to change the language to %1s?</string>
     <string name="app_language_fr" translatable="false">Français</string>

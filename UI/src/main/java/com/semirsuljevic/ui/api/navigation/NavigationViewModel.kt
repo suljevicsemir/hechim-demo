@@ -9,8 +9,7 @@ class NavigationViewModel @Inject constructor(
     private val navigator: Navigator
 ): ViewModel(){
 
-
-    fun pop() {
-        navigator.pop()
-    }
+    fun navigateTo(route: HechimRoute) = navigator.navigate(route)
+    fun navigateTo(route: String) = navigator.navigate(route)
+    fun pop() = navigator.pop()
 }

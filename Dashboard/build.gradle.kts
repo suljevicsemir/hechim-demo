@@ -9,6 +9,7 @@ android {
 
 dependencies {
     implementation(project(":UI"))
+    implementation(project(":Onboarding"))
     implementation(project(":Foundation"))
     implementation(libs.core.ktx)
     implementation(libs.appcompat)

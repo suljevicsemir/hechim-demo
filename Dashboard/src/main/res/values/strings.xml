@@ -33,4 +33,16 @@
     <string name="about_page_title">About</string>
     <string name="terms_page_title">Terms Of Use</string>
     <string name="privacy_policy_title">Privacy Policy</string>
+
+
+<!--    Application Settings (Change pass, Biometrics, Language Selection)-->
+    <string name="app_settings_page_title">Application Settings</string>
+    <string name="app_settings_change_pass_title">Change password</string>
+    <string name="app_settings_change_pass_desc">Change password for fitness app</string>
+
+    <string name="app_settings_biometrics_title">Biometrics</string>
+    <string name="app_settings_biometrics_desc">Activate/Deactivate biometrics for login</string>
+
+    <string name="app_settings_language_title">Language selection</string>
+    <string name="app_settings_language_desc">Change app language</string>
 </resources>
