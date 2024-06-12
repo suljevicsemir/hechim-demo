@@ -13,5 +13,5 @@ interface HechimSettings {
 
     val termsFlow: Flow<HechimResource<TermsOfUseResponse>>
     val aboutUsFlow: Flow<HechimResource<AboutUsResponse>>
-    val privacyPolicyResponse: Flow<HechimResource<PrivacyPolicyResponse>>
+    val privacyPolicyFlow: Flow<HechimResource<PrivacyPolicyResponse>>
 }

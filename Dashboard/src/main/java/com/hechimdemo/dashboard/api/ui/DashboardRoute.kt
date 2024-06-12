@@ -1,5 +1,6 @@
 package com.hechimdemo.dashboard.api.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -30,12 +31,8 @@ class RouteDashboard:HechimRoute("dashboard")
 fun DashboardNavBar(
     navController: NavHostController = rememberNavController(),
     viewModel: DashboardViewModel,
-    trapdoorCallback: () -> Unit
 ) {
 
-    LaunchedEffect(Unit) {
-
-    }
 
     HechimScreen (
         config = HechimScreenConfig(

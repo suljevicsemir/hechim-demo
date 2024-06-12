@@ -22,6 +22,15 @@
 
     <string name="settings_title">Settings</string>
 
+    <string name="legal_page_title">Legal Information</string>
+
+    <string name="legal_page_terms_title">Terms of Use</string>
+    <string name="legal_page_terms_desc">Read the Terms of Use document</string>
+
+    <string name="legal_page_privacy_title">Privacy Policy</string>
+    <string name="legal_page_privacy_desc">Read the Privacy Policy document</string>
 
     <string name="about_page_title">About</string>
+    <string name="terms_page_title">Terms Of Use</string>
+    <string name="privacy_policy_title">Privacy Policy</string>
 </resources>

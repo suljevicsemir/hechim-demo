@@ -13,14 +13,20 @@ class DashboardViewModel @Inject constructor(
 ):ViewModel(){
 
     private val _navBarIndex = mutableIntStateOf(0)
-    val navBarIndex get() = _navBarIndex.value
+    val navBarIndex get() = _navBarIndex.intValue
 
     fun setNavBarIndex(value: Int) {
-        _navBarIndex.value = value
+        _navBarIndex.intValue = value
     }
 
     fun onItemTap(route: HechimRoute) {
         navigator.navigate(route)
+    }
+
+    fun dashboardPop() {
+        println("popping")
+        setNavBarIndex(0)
+        navigator.pop()
     }
 
 }

@@ -43,10 +43,6 @@ fun AppNavigator(
         }
     }
 
-
-
-
-
     LaunchedEffect(Unit) {
         mainViewModel.setupNavigation(navController)
 
@@ -60,9 +56,6 @@ fun AppNavigator(
         permissionsNavGraph(viewModelStoreOwner)
         dashboardNavGraph(
             viewModelStoreOwner,
-            trapdoorCallback = {
-                trapdoorViewModel.checkTrapdoorPermission()
-            }
         )
     }
 

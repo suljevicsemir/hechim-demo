@@ -1,4 +1,4 @@
-package com.hechimdemo.dashboard.api.about.ui
+package com.hechimdemo.dashboard.api.legal.ui
 
 import android.content.Intent
 import android.net.Uri
@@ -10,45 +10,35 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.hechimdemo.dashboard.R
-import com.hechimdemo.dashboard.api.about.viewmodel.AboutViewModel
+import com.hechimdemo.dashboard.api.legal.viewmodel.LegalViewModel
 import com.semirsuljevic.ui.api.common.HechimHtmlText
 import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.screen.HechimScreen
 import com.semirsuljevic.ui.api.screen.HechimScreenConfig
 import com.semirsuljevic.ui.api.theme.HechimTheme
 
-class RouteAboutUs:HechimRoute("about_us")
+class RoutePrivacyPolicy: HechimRoute("privacy_policy")
 
 @Composable
-fun AboutUsRoute(
-    viewModel: AboutViewModel = hiltViewModel()
+fun PrivacyPolicyRoute(
+    legalViewModel: LegalViewModel
 ) {
-
-
-
-    LaunchedEffect(Unit) {
-        viewModel.getAboutContent()
-    }
-
-
-
     val scrollState = rememberScrollState()
     val context = LocalContext.current
+
     HechimScreen (
         config = HechimScreenConfig(
-            title = stringResource(id = R.string.about_page_title),
+            title = stringResource(id = R.string.privacy_policy_title),
             errorReset = {
-                viewModel.getAboutContent()
+                legalViewModel.getPrivacy()
             }
         ),
-        resource = viewModel.about
+        resource = legalViewModel.privacyPolicy
     ){
         Column (
             modifier = Modifier
@@ -56,15 +46,11 @@ fun AboutUsRoute(
                 .padding(HechimTheme.sizes.scaffoldHorizontal)
                 .verticalScroll(scrollState)
         ){
-            Image(
-                painter = painterResource(id = R.drawable.img_about),
-                contentDescription = ""
-            )
             Spacer(modifier = Modifier.height(HechimTheme.sizes.xLarge))
             HechimHtmlText(
-                html = viewModel.aboutContent,
-                onHyperlinkClick = {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(it))
+                html = legalViewModel.privacyPolicyContent,
+                onHyperlinkClick = { string ->
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(string))
                     context.startActivity(intent)
                 }
             )

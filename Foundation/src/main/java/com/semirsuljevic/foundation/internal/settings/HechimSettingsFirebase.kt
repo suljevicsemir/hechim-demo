@@ -29,7 +29,9 @@ class HechimSettingsFirebase @Inject constructor(
             .limitToLast(1)
             .get()
         task.await()
+        println("awaited")
         if(task.isSuccessful) {
+            println("about us success")
             val doc = task.result.documents.first()
             _aboutUsFlow.tryEmit(
                 HechimResource.Success(
@@ -41,30 +43,49 @@ class HechimSettingsFirebase @Inject constructor(
             )
             return
         }
+        println("about us error: ${task.exception}")
         _aboutUsFlow.tryEmit(HechimResource.Error(error = HechimError(message = "")))
     }
 
     override suspend fun getPrivacyPolicy() {
-        val task = firebaseParsing.convertQuerySnapshot<PrivacyPolicyResponse>(Firebase.firestore
+        val task = Firebase.firestore
             .collection(SettingsFirebaseConstants.PRIVACY_POLICY_COLLECTION)
+            .orderBy("date")
             .limitToLast(1)
             .get()
-        )
-        if (task is FirebaseTask.Success) {
-            _privacyPolicyResponse.tryEmit(HechimResource.Success(data = task.data!!))
+        task.await()
+        if(task.isSuccessful) {
+            val doc = task.result.documents.first()
+            _privacyPolicyResponse.tryEmit(
+                HechimResource.Success(
+                    PrivacyPolicyResponse(
+                        content = doc.get("content") as String,
+                        date = doc.get("date") as String
+                    )
+                )
+            )
             return
         }
         _privacyPolicyResponse.tryEmit(HechimResource.Error(error = HechimError(message = "")))
     }
 
     override suspend fun getTermsOfUse() {
-        val task = firebaseParsing.convertQuerySnapshot<TermsOfUseResponse>(Firebase.firestore
+        val task = Firebase.firestore
             .collection(SettingsFirebaseConstants.TERMS_OF_USE_COLLECTION)
+            .orderBy("date")
             .limitToLast(1)
             .get()
-        )
-        if (task is FirebaseTask.Success) {
-            _termsFlow.tryEmit(HechimResource.Success(data = task.data!!))
+        task.await()
+        if(task.isSuccessful) {
+            val doc = task.result.documents.first()
+            _termsFlow.tryEmit(
+                HechimResource.Success(
+                    TermsOfUseResponse(
+                        content = doc.get("content") as String,
+                        date = doc.get("date") as String
+                    )
+                )
+            )
             return
         }
         _termsFlow.tryEmit(HechimResource.Error(error = HechimError(message = "")))
@@ -72,7 +93,7 @@ class HechimSettingsFirebase @Inject constructor(
 
     override val termsFlow: Flow<HechimResource<TermsOfUseResponse>> get() = _termsFlow.asSharedFlow()
     override val aboutUsFlow: Flow<HechimResource<AboutUsResponse>> get() = _aboutUsFlow.asSharedFlow()
-    override val privacyPolicyResponse: Flow<HechimResource<PrivacyPolicyResponse>>
+    override val privacyPolicyFlow: Flow<HechimResource<PrivacyPolicyResponse>>
         get() = _privacyPolicyResponse.asSharedFlow()
 
     private val _termsFlow = MutableSharedFlow<HechimResource<TermsOfUseResponse>>(replay = 1)
