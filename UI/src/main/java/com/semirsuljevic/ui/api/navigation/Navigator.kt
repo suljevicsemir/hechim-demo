@@ -11,4 +11,6 @@ interface Navigator {
 
     fun setHome(path: String)
     fun navigateHome()
+
+    fun navigateAndRemove(route: HechimRoute)
 }

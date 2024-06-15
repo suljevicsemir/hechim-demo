@@ -10,6 +10,7 @@ import com.hechimdemo.dashboard.R
 import com.hechimdemo.dashboard.api.about.ui.RouteAboutUs
 import com.hechimdemo.dashboard.api.appSettings.ui.RouteApplicationSettings
 import com.hechimdemo.dashboard.api.legal.ui.RouteLegal
+import com.hechimdemo.dashboard.api.profile.ui.RouteProfile
 import com.semirsuljevic.foundation.api.common.UiText
 import com.semirsuljevic.ui.api.common.HechimListItem
 import com.semirsuljevic.ui.api.common.HechimListItemConfig
@@ -34,9 +35,7 @@ fun DashboardMoreRoute(
                title = UiText.StringResource(R.string.settings_profile_title),
                description = UiText.StringResource(R.string.settings_profile_desc),
                icon = R.drawable.ic_user_profile,
-               onClick = {
-
-               }
+               onClick = { onItemTap(RouteProfile()) }
            )
        )
        HechimListItem(

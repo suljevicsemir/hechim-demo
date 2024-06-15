@@ -67,7 +67,7 @@ fun LanguageSelectionScreen(
                         onContinue()
                         return@HechimButton
                     }
-                    languageSelectionViewModel.pop()
+                    //languageSelectionViewModel.pop()
                 },
                 text = "Continue"
             )

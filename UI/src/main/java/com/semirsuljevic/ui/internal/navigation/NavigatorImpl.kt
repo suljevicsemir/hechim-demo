@@ -1,6 +1,7 @@
 package com.semirsuljevic.ui.internal.navigation
 
 import android.content.res.Resources.NotFoundException
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
 import com.semirsuljevic.ui.api.navigation.HechimRoute
@@ -37,5 +38,13 @@ class NavigatorImpl @Inject constructor(): Navigator {
             throw NotFoundException("Home path not set, call setHome() before using navigateHome()")
         }
         navigator.navigate(homePath)
+    }
+
+    override fun navigateAndRemove(route: HechimRoute) {
+        navigator.navigate(route.path) {
+            popUpTo(navigator.graph.findStartDestination().id) {
+                inclusive = true
+            }
+        }
     }
 }

@@ -34,6 +34,11 @@
     <string name="terms_page_title">Terms Of Use</string>
     <string name="privacy_policy_title">Privacy Policy</string>
 
+    <!--Profile-->
+    <string name="profile_page_title">User Profile</string>
+    <string name="profile_first_name">First name</string>
+    <string name="profile_last_name">Last name</string>
+
 
 <!--    Application Settings (Change pass, Biometrics, Language Selection)-->
     <string name="app_settings_page_title">Application Settings</string>

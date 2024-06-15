@@ -45,7 +45,7 @@ fun AppNavigator(
 
     LaunchedEffect(Unit) {
         mainViewModel.setupNavigation(navController)
-
+        mainViewModel.checkProfileTrapdoor()
     }
 
     NavHost(

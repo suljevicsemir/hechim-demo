@@ -41,6 +41,11 @@
     <string name="register_confirm_password_hint">Repeat password to confirm</string>
     <string name="register_button">CONFIRM</string>
 
+    <!--Name-->
+    <string name="name_headline">What should we call you during FitnessPal experience?</string>
+    <string name="name_first_name_hint">First name</string>
+    <string name="name_last_name_hint">Last name</string>
+
     <string name="common_yes">Yes</string>
     <string name="common_ok">OK</string>
     <string name="common_no">No</string>
