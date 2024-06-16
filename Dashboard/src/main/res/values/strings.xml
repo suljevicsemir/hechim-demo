@@ -2,6 +2,60 @@
 <resources>
     <string name="dashboard_item_home">Home</string>
     <string name="dashboard_item_profile">Profile</string>
-    <string name="dashboard_item_more">More</string>
+    <string name="dashboard_item_more">Settings</string>
     <string name="dashboard_item_workouts">Workouts</string>
+
+    <string name="settings_profile_title">User profile</string>
+    <string name="settings_profile_desc">View your profile data</string>
+
+    <string name="settings_app_settings_title">Application settings</string>
+    <string name="settings_app_settings_desc">Adjust app settings</string>
+
+    <string name="settings_legal_title">Legal information</string>
+    <string name="settings_legal_desc">Read legal documents</string>
+
+    <string name="settings_about_title">About %1s</string>
+    <string name="settings_about_desc">More info about the app</string>
+
+    <string name="settings_log_out_title">Log out</string>
+    <string name="settings_log_out_desc">Sign out of the application</string>
+
+    <string name="settings_title">Settings</string>
+
+    <string name="legal_page_title">Legal Information</string>
+
+    <string name="legal_page_terms_title">Terms of Use</string>
+    <string name="legal_page_terms_desc">Read the Terms of Use document</string>
+
+    <string name="legal_page_privacy_title">Privacy Policy</string>
+    <string name="legal_page_privacy_desc">Read the Privacy Policy document</string>
+
+    <string name="about_page_title">About</string>
+    <string name="terms_page_title">Terms Of Use</string>
+    <string name="privacy_policy_title">Privacy Policy</string>
+
+    <!--Profile-->
+    <string name="profile_page_title">User Profile</string>
+    <string name="profile_first_name">First name</string>
+    <string name="profile_last_name">Last name</string>
+
+    <string name="first_name_headline">Change your first name here</string>
+    <string name="first_name_hint">First name</string>
+    <string name="last_name_headline">Change your last name here</string>
+    <string name="last_name_hint">Last name</string>
+
+    <string name="name_update">Update</string>
+
+
+
+<!--    Application Settings (Change pass, Biometrics, Language Selection)-->
+    <string name="app_settings_page_title">Application Settings</string>
+    <string name="app_settings_change_pass_title">Change password</string>
+    <string name="app_settings_change_pass_desc">Change password for fitness app</string>
+
+    <string name="app_settings_biometrics_title">Biometrics</string>
+    <string name="app_settings_biometrics_desc">Activate/Deactivate biometrics for login</string>
+
+    <string name="app_settings_language_title">Language selection</string>
+    <string name="app_settings_language_desc">Change app language</string>
 </resources>

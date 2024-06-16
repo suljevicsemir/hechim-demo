@@ -11,6 +11,8 @@ import com.semirsuljevic.onboarding.api.welcome.ui.language.LanguageSelectionScr
 import com.semirsuljevic.onboarding.api.welcome.ui.language.RouteLanguageSelection
 import com.semirsuljevic.onboarding.api.welcome.ui.login.LoginScreen
 import com.semirsuljevic.onboarding.api.welcome.ui.login.RouteLogin
+import com.semirsuljevic.onboarding.api.welcome.ui.name.ui.NameRoute
+import com.semirsuljevic.onboarding.api.welcome.ui.name.ui.RouteName
 import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoarding
 import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoardingPop
 import com.semirsuljevic.onboarding.api.welcome.ui.register.RegisterScreen
@@ -59,5 +61,8 @@ fun NavGraphBuilder.onBoardingNavGraph(
         val registerViewModel = viewModel<RegisterViewModel>(viewModelStoreOwner)
         registerViewModel.setEmail(loginEmailViewModel.email)
         RegisterScreen(registerViewModel = viewModel<RegisterViewModel>(viewModelStoreOwner))
+    }
+    composable(route = RouteName().path) {
+        NameRoute()
     }
 }

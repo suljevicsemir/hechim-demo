@@ -20,19 +20,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.semirsuljevic.foundation.api.common.HechimResource
 import com.semirsuljevic.ui.R
 import com.semirsuljevic.ui.api.buttons.HechimButton
+import com.semirsuljevic.ui.api.navigation.NavigationViewModel
 import com.semirsuljevic.ui.api.theme.HechimTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HechimScreen(
     config: HechimScreenConfig = HechimScreenConfig(),
-    useTopBar : Boolean = true,
     bottomBar: (@Composable () -> Unit)? = null,
     resource: HechimResource<Any>? = null,
     actions: @Composable (RowScope.() -> Unit)? = null,
+    navigationViewModel: NavigationViewModel = hiltViewModel(),
     content: @Composable (PaddingValues) -> Unit,
 ) {
     Scaffold (
@@ -43,13 +45,13 @@ fun HechimScreen(
             }
         },
         topBar = {
-            if(!useTopBar) {
+            if(!config.canNavigateBack) {
                 return@Scaffold
             }
             HechimTopBar(
                 config = config,
                 actions = actions,
-                navigateUp = { /*TODO*/ }
+                navigateUp = { navigationViewModel.pop() }
             )
         }
     ){

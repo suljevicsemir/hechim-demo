@@ -12,7 +12,7 @@
 
     <!--Language Selection screen-->
     <string name="language_selection_title">LANGUAGE SELECTION</string>
-    <string name="language_selection_page_desc">Please select the language for the Eugen app user interface.</string>
+    <string name="language_selection_page_desc">Please select the language for the Fitness app user interface.</string>
     <string name="language_selection_alert_title">Confirm language change</string>
     <string name="language_selection_alert_content">Are you sure you want to change the language to %1s?</string>
     <string name="app_language_fr" translatable="false">Français</string>
@@ -40,6 +40,11 @@
     <string name="register_password_hint">Choose your password</string>
     <string name="register_confirm_password_hint">Repeat password to confirm</string>
     <string name="register_button">CONFIRM</string>
+
+    <!--Name-->
+    <string name="name_headline">What should we call you during FitnessPal experience?</string>
+    <string name="name_first_name_hint">First name</string>
+    <string name="name_last_name_hint">Last name</string>
 
     <string name="common_yes">Yes</string>
     <string name="common_ok">OK</string>

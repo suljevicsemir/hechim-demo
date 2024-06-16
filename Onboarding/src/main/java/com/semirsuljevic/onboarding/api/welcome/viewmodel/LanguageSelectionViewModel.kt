@@ -91,6 +91,8 @@ class LanguageSelectionViewModel @Inject constructor(
         ),
     )
 
+    fun pop() = navigator.pop()
+
     fun navigateToEmail() {
         navigator.navigate(RouteEmail())
     }
