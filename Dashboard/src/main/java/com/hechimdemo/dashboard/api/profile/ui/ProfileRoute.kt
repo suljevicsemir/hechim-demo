@@ -62,11 +62,13 @@ fun ProfileRoute(
             Spacer(modifier = Modifier.height(HechimTheme.sizes.large))
             ProfileInfoItem(
                 label = UiText.StringResource(R.string.profile_first_name),
-                value = UiText.StringValue(userProfileViewModel.userContent.firstName)
+                value = UiText.StringValue(userProfileViewModel.userContent.firstName),
+                onClick = { userProfileViewModel.navigateToFirstName() }
             )
             ProfileInfoItem(
                 label = UiText.StringResource(R.string.profile_last_name),
-                value = UiText.StringValue(userProfileViewModel.userContent.lastName)
+                value = UiText.StringValue(userProfileViewModel.userContent.lastName),
+                onClick = { userProfileViewModel.navigateToLastName() }
             )
 
         }

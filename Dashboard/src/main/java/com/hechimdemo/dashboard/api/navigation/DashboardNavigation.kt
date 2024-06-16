@@ -15,7 +15,11 @@ import com.hechimdemo.dashboard.api.legal.ui.RoutePrivacyPolicy
 import com.hechimdemo.dashboard.api.legal.ui.RouteTerms
 import com.hechimdemo.dashboard.api.legal.ui.TermsRoute
 import com.hechimdemo.dashboard.api.legal.viewmodel.LegalViewModel
+import com.hechimdemo.dashboard.api.profile.ui.ProfileFirstName
+import com.hechimdemo.dashboard.api.profile.ui.ProfileLastName
 import com.hechimdemo.dashboard.api.profile.ui.ProfileRoute
+import com.hechimdemo.dashboard.api.profile.ui.RouteFirstName
+import com.hechimdemo.dashboard.api.profile.ui.RouteLastName
 import com.hechimdemo.dashboard.api.profile.ui.RouteProfile
 import com.hechimdemo.dashboard.api.ui.DashboardNavBar
 import com.hechimdemo.dashboard.api.ui.RouteDashboard
@@ -67,6 +71,14 @@ fun NavGraphBuilder.dashboardNavGraph(
 
     composable(route = RouteProfile().path) {
         ProfileRoute()
+    }
+
+    composable(route = RouteFirstName().path) {
+        ProfileFirstName()
+    }
+
+    composable(route = RouteLastName().path) {
+        ProfileLastName()
     }
 
 }

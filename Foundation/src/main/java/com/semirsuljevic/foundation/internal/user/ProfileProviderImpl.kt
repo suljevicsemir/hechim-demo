@@ -20,9 +20,10 @@ class ProfileProviderImpl @Inject constructor(
     private val hechimDataStore: HechimDataStore
 ): ProfileProvider{
     override suspend fun updateName(firstName: String, lastName: String) {
-        val profile = profileFlow.first()
-        profile.lastName = lastName
-        profile.firstName = firstName
+        val profile = profileFlow.first().copy(
+            firstName = firstName,
+            lastName = lastName
+        )
         hechimDataStore.updateHechimUser(profile)
     }
 

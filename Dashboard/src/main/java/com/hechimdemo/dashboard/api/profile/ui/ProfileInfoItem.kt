@@ -1,6 +1,7 @@
 package com.hechimdemo.dashboard.api.profile.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,12 +11,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.semirsuljevic.foundation.api.common.UiText
+import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.theme.HechimTheme
 
 @Composable
 fun ProfileInfoItem(
     label: UiText,
-    value: UiText
+    value: UiText,
+    onClick: () -> Unit
 ) {
     Column (
         modifier = Modifier
@@ -26,6 +29,7 @@ fun ProfileInfoItem(
                 shape = HechimTheme.shapes.xLargeRoundedCorner
             )
             .padding(HechimTheme.sizes.large)
+            .clickable { onClick() }
 
     ){
         Text(
