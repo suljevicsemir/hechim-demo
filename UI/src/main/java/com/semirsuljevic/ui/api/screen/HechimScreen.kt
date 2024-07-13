@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.semirsuljevic.foundation.api.common.HechimResource
 import com.semirsuljevic.ui.R
@@ -56,57 +57,60 @@ fun HechimScreen(
         }
     ){
         content(it)
-    }
+        AnimatedVisibility(visible = resource is HechimResource.Loading) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        HechimTheme.colors.backgroundDefault
+                    ),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                CircularProgressIndicator(
+                    color = HechimTheme.colors.primary
 
-
-    AnimatedVisibility(visible = resource is HechimResource.Loading) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(
-                    HechimTheme.colors.backgroundDefault
-                ),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            CircularProgressIndicator(
-                color = HechimTheme.colors.primary
-
-            )
-        }
-    }
-
-    AnimatedVisibility(visible = resource is HechimResource.Error) {
-        Column(
-            modifier = Modifier
-                .padding(horizontal = HechimTheme.sizes.scaffoldHorizontal)
-                .fillMaxSize()
-                .background(
-                    HechimTheme.colors.backgroundDefault
-                ),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Spacer(modifier = Modifier.weight(0.1f))
-            Image(painter = painterResource(id = R.drawable.img_nothing_found), contentDescription = "Error")
-            Spacer(modifier = Modifier.height(HechimTheme.sizes.xxLarge))
-            if(resource is HechimResource.Error) {
-                Text(
-                    resource.error.message,
-                    style = HechimTheme.fonts.bodyLarge,
-                    color = HechimTheme.colors.textDefault
                 )
             }
-
-            Spacer(modifier = Modifier.weight(1f))
-            HechimButton(
-                onClick = {
-                    config.errorReset?.invoke()
-                },
-                text = "Retry strategy"
-            )
-            Spacer(modifier = Modifier.height(HechimTheme.sizes.xLarge))
+        }
+        AnimatedVisibility(visible = resource is HechimResource.Error) {
+            Column(
+                modifier = Modifier
+                    .padding(it)
+                    .padding(horizontal = HechimTheme.sizes.scaffoldHorizontal)
+                    .fillMaxSize()
+                    .background(
+                        HechimTheme.colors.backgroundDefault
+                    ),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Spacer(modifier = Modifier.weight(0.1f))
+                Image(painter = painterResource(id = R.drawable.img_nothing_found), contentDescription = "Error")
+                Spacer(modifier = Modifier.height(HechimTheme.sizes.xxLarge))
+                if(resource is HechimResource.Error) {
+                    Text(
+                        resource.error.message,
+                        style = HechimTheme.fonts.bodyLarge,
+                        color = HechimTheme.colors.textDefault,
+                        textAlign = TextAlign.Center
+                    )
+                }
+                Spacer(modifier = Modifier.weight(1f))
+                HechimButton(
+                    onClick = {
+                        config.errorReset?.invoke()
+                    },
+                    text = "Retry strategy"
+                )
+                Spacer(modifier = Modifier.height(HechimTheme.sizes.xLarge))
+            }
         }
     }
+
+
+
+
+
 
 }

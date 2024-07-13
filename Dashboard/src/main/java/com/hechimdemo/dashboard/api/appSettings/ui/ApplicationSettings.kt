@@ -2,12 +2,12 @@ package com.hechimdemo.dashboard.api.appSettings.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.hechimdemo.dashboard.R
+import com.hechimdemo.dashboard.api.changePassword.ui.RouteChangePassword
 import com.semirsuljevic.foundation.api.common.UiText
 import com.semirsuljevic.onboarding.api.welcome.ui.language.RouteLanguageSelection
 import com.semirsuljevic.ui.api.common.HechimListItem
@@ -39,7 +39,7 @@ fun ApplicationSettings(
                 config = HechimListItemConfig(
                     title = UiText.StringResource(R.string.app_settings_change_pass_title),
                     description = UiText.StringResource(R.string.app_settings_change_pass_desc),
-                    onClick = {  },
+                    onClick = { navigationViewModel.navigateTo(RouteChangePassword()) },
                     icon = R.drawable.ic_change_password
                 )
             )

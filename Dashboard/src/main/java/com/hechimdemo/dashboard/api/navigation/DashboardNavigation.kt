@@ -8,6 +8,8 @@ import com.hechimdemo.dashboard.api.about.ui.AboutUsRoute
 import com.hechimdemo.dashboard.api.about.ui.RouteAboutUs
 import com.hechimdemo.dashboard.api.appSettings.ui.ApplicationSettings
 import com.hechimdemo.dashboard.api.appSettings.ui.RouteApplicationSettings
+import com.hechimdemo.dashboard.api.changePassword.ui.ChangePasswordRoute
+import com.hechimdemo.dashboard.api.changePassword.ui.RouteChangePassword
 import com.hechimdemo.dashboard.api.legal.ui.LegalRoute
 import com.hechimdemo.dashboard.api.legal.ui.PrivacyPolicyRoute
 import com.hechimdemo.dashboard.api.legal.ui.RouteLegal
@@ -79,6 +81,9 @@ fun NavGraphBuilder.dashboardNavGraph(
 
     composable(route = RouteLastName().path) {
         ProfileLastName()
+    }
+    composable(route = RouteChangePassword().path) {
+        ChangePasswordRoute()
     }
 
 }

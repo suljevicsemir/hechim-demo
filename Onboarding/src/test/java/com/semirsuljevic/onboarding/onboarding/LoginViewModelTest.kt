@@ -6,6 +6,8 @@ import com.google.common.truth.Truth.assertThat
 import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
 import com.semirsuljevic.foundation.api.common.HechimError
 import com.semirsuljevic.foundation.api.common.HechimResource
+import com.semirsuljevic.foundation.api.user.Profile
+import com.semirsuljevic.foundation.api.user.ProfileProvider
 import com.semirsuljevic.onboarding.api.welcome.viewmodel.LoginViewModel
 import com.semirsuljevic.onboarding.onboarding.util.BaseMockkTest
 import com.semirsuljevic.ui.api.navigation.Navigator
@@ -23,8 +25,12 @@ internal class LoginViewModelTest:BaseMockkTest<LoginViewModel>() {
     private lateinit var navigator: Navigator
     @MockK
     private lateinit var hechimAuthentication: HechimAuthentication
+    @MockK
+    private lateinit var profile:Profile
+    @MockK
+    private lateinit var profileProvider: ProfileProvider
 
-    override fun createSut(): LoginViewModel = LoginViewModel(navigator, hechimAuthentication)
+    override fun createSut(): LoginViewModel = LoginViewModel(navigator, hechimAuthentication, profile, profileProvider)
 
     override fun setUp() {}
 
