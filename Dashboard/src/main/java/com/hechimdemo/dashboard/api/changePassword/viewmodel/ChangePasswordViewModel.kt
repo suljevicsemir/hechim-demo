@@ -76,7 +76,6 @@ class ChangePasswordViewModel @Inject constructor(
             )
             return false
         }
-        //
         if(!credentialsValidator.validatePassword(_newPassword.value.text.trim())) {
             _newPassword.value = _newPassword.value.copy(
                 error = UiText.StringResource(R.string.new_password_invalid)
