@@ -7,7 +7,11 @@ Code mainly focuses:
 - multi-module architecture
 - unit testing
 - handling different UI states with grace
-  
+
+Certain parts of the skills demonstration will also be:
+- navigation
+- UI grace handling (loading, error, success, content)
+
   
 
 ## Short insight what this project is about to casual or more interested reader.
