@@ -6,10 +6,13 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.hechimdemo.onboarding.R
@@ -72,7 +75,11 @@ fun EmailScreen(loginEmailViewModel: LoginEmailViewModel) {
                 onValueChange = { email ->
                     loginEmailViewModel.onEmailChange(email)
                 },
-                hint = stringResource(id = R.string.login_username_input_hint)
+                hint = stringResource(id = R.string.login_username_input_hint),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Email,
+                    imeAction = ImeAction.Done
+                )
             )
             Spacer(modifier = Modifier.weight(1f))
             HechimButton(

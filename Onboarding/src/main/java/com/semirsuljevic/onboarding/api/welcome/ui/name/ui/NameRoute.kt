@@ -5,10 +5,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.hechimdemo.onboarding.R
 import com.semirsuljevic.foundation.api.common.UiText
@@ -52,7 +55,11 @@ fun NameRoute(
                 onValueChange = {name ->
                     viewModel.onFirstNameChange(name)
                 },
-                hint = stringResource(id = R.string.name_first_name_hint)
+                hint = stringResource(id = R.string.name_first_name_hint),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Text,
+                    imeAction = ImeAction.Next
+                )
             )
             Spacer(modifier = Modifier.height(HechimTheme.sizes.large))
             HechimTextField(
@@ -60,13 +67,18 @@ fun NameRoute(
                 onValueChange = { name ->
                     viewModel.onLastNameChange(name)
                 },
-                hint = stringResource(id = R.string.name_last_name_hint)
+                hint = stringResource(id = R.string.name_last_name_hint),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Text,
+                    imeAction = ImeAction.Done
+                )
             )
             Spacer(modifier = Modifier.weight(1f))
             HechimButton(
                 onClick = { viewModel.setInfo() },
                 text = "Continue",
-                enabled = viewModel.buttonEnabled
+                enabled = viewModel.buttonEnabled,
+
             )
         }
     }

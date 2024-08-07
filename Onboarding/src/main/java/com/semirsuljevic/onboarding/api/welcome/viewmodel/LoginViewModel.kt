@@ -13,6 +13,8 @@ import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoardingPop
 import com.semirsuljevic.ui.api.navigation.Navigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -26,6 +28,9 @@ class LoginViewModel @Inject constructor(
 ): ViewModel(){
     private val _resource = mutableStateOf<HechimResource<HechimUser>>(HechimResource.Nothing(""))
     val resource get() = _resource.value
+
+    private val _loginResult = MutableStateFlow<Boolean>(false)
+    val loginResult: StateFlow<Boolean> = _loginResult
 
     private val _password = mutableStateOf("")
     val password: String get() = _password.value
@@ -41,9 +46,9 @@ class LoginViewModel @Inject constructor(
         _password.value = value
     }
 
-    fun login() {
+    fun login(callback: () -> Unit) {
         viewModelScope.launch {
-            _resource.value = HechimResource.Loading("Loggin you in")
+            _resource.value = HechimResource.Loading("Logging you in")
             delay(1000)
             _resource.value = hechimAuthentication.login(
                 email = _email,
@@ -52,12 +57,10 @@ class LoginViewModel @Inject constructor(
             if(_resource.value is HechimResource.Success) {
                 profile.getUser()
                 val profile = profileProvider.profileFlow.first()
-                if(profile.completedName) {
-                    navigator.navigateHome()
-                    return@launch
+                if(!profile.completedName) {
+                    navigator.navigate(RouteName())
                 }
-                navigator.navigate(RouteName())
-
+                callback()
             }
         }
     }

@@ -69,7 +69,7 @@ internal class LoginViewModelTest:BaseMockkTest<LoginViewModel>() {
         stub.onPasswordChange(password)
 
         //unsuccessful login
-        stub.login()
+        stub.login({})
         advanceUntilIdle()
         assertThat(stub.resource).isInstanceOf(HechimResource.Error::class.java)
         assertThat((stub.resource as HechimResource.Error).error.message).isEqualTo(error.message)
