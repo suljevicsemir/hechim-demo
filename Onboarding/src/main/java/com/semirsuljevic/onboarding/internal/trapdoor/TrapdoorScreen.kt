@@ -33,10 +33,8 @@ fun TrapdoorScreen(
 ) {
 
     if(config == null) {
-        println("config null aborting")
         return
     }
-    println("config not null not aborting")
     val launcher: ManagedActivityResultLauncher<Intent, ActivityResult> = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
         onResult = {

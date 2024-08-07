@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -50,7 +51,9 @@ fun OnBoardingScreen(
 
     HechimScreen (
         config = HechimScreenConfig(
-            containerColor = HechimTheme.colors.backgroundSecondary
+            containerColor = HechimTheme.colors.backgroundSecondary,
+            title = stringResource(id = R.string.onboarding_top_bar),
+            canNavigateBack = false
         )
     ){
         Column (
@@ -60,6 +63,7 @@ fun OnBoardingScreen(
                 .verticalScroll(scrollState)
                 .padding(it)
         ){
+            Spacer(modifier = Modifier.height(HechimTheme.sizes.medium))
             Text(
                 stringResource(id = R.string.onboarding_top_bar),
                 color = HechimTheme.colors.textDefault,

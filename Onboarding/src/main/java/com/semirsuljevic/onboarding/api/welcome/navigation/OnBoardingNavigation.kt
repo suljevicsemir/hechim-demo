@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.semirsuljevic.onboarding.api.permissions.viewmodel.PermissionViewModel
 import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.OnBoardingScreen
 import com.semirsuljevic.onboarding.api.welcome.ui.email.EmailScreen
 import com.semirsuljevic.onboarding.api.welcome.ui.email.RouteEmail
@@ -53,8 +54,9 @@ fun NavGraphBuilder.onBoardingNavGraph(
     composable(route = RouteLogin().path) {
         val loginEmailViewModel = viewModel<LoginEmailViewModel>(viewModelStoreOwner)
         val loginViewModel = viewModel<LoginViewModel>(viewModelStoreOwner)
+        val permissionsViewModel = viewModel<PermissionViewModel>(viewModelStoreOwner)
         loginViewModel.setEmail(loginEmailViewModel.email)
-        LoginScreen(loginViewModel = loginViewModel)
+        LoginScreen(loginViewModel = loginViewModel, permissionsViewModel)
     }
     composable(route = RouteRegister().path) {
         val loginEmailViewModel = viewModel<LoginEmailViewModel>(viewModelStoreOwner)

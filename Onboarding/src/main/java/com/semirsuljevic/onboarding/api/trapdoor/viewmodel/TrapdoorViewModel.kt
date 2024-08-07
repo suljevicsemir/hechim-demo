@@ -39,7 +39,7 @@ class TrapdoorViewModel @Inject constructor(
 ): PermissionsProviderViewModel(applicationContext = applicationContext){
 
     private val _trapdoorConfig = mutableStateOf<TrapdoorConfig?>(null)
-    val trapdoorConfig get() = _trapdoorConfig
+    val trapdoorConfig get() = _trapdoorConfig.value
 
     /**
     Checks necessary permissions on every app launch or every time app is brought to foreground.
@@ -54,40 +54,37 @@ class TrapdoorViewModel @Inject constructor(
         //in order for trapdoor modal to kick in
         val value: MutableList<String> = mutableListOf()
         //set to null each time method is triggered - enables to refresh the latest trapdoor value
-        _trapdoorConfig.value = null
+        var tempConfig : TrapdoorConfig? = null
+
         viewModelScope.launch {
             val requests = permissionRequestsProvider.getPermissionRequests().first()
             if (!requests.finishedPermissions || !authenticationApi.isAuthenticated()) {
                 return@launch
             }
-            //necessary to add small delay as trapdoor is checked on start and foreground
-            delay(TrapdoorConstants.trapdoorDelay)
-
             //Activity recognition for Android 10 and above
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
                 !permissionGranted(android.Manifest.permission.ACTIVITY_RECOGNITION)) {
                 value.add(android.Manifest.permission.ACTIVITY_RECOGNITION)
-                _trapdoorConfig.value = TrapdoorConstants.activityRecognition
+                tempConfig = TrapdoorConstants.activityRecognition
             }
             //Battery Optimization for Samsung devices
             if(!checkBatteryOptimization()) {
                 value.add(android.Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
-                _trapdoorConfig.value = TrapdoorConstants.batteryOptimization
+                tempConfig = TrapdoorConstants.batteryOptimization
             }
             //Android 9 and below location
             if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.P &&
                 !permissionGranted(android.Manifest.permission.ACCESS_FINE_LOCATION)) {
                 value.add(android.Manifest.permission.ACCESS_FINE_LOCATION)
-                _trapdoorConfig.value = TrapdoorConstants.location
+                tempConfig = TrapdoorConstants.location
             }
             //Background location for Android 10 and above
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
                 !permissionGranted(android.Manifest.permission.ACCESS_BACKGROUND_LOCATION)) {
                 value.add(android.Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-                _trapdoorConfig.value = TrapdoorConstants.locationAlways
+                tempConfig = TrapdoorConstants.locationAlways
             }
-            println("checked trapdoor")
-            println(_trapdoorConfig.value)
+            _trapdoorConfig.value = tempConfig
         }
     }
 
@@ -98,7 +95,7 @@ class TrapdoorViewModel @Inject constructor(
      */
     fun fixPermission(launcher: ManagedActivityResultLauncher<Intent, ActivityResult>) {
         if(_trapdoorConfig.value != null){
-            if(trapdoorConfig.value?.manifestPermission == android
+            if(_trapdoorConfig.value?.manifestPermission == android
                     .Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS) {
                 requestIgnoreBatteryOptimization()
                 return

@@ -60,7 +60,7 @@ fun AppNavigator(
     }
 
     TrapdoorScreen(
-        config = trapdoorViewModel.trapdoorConfig.value,
+        config = trapdoorViewModel.trapdoorConfig,
         trapdoorViewModel = trapdoorViewModel
     )
 
