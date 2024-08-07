@@ -43,7 +43,7 @@ internal class PermissionsNavigatorImpl @Inject constructor(
             navigator.navigateHome()
             return
         }
-        navigator.navigate(routes.first())
+        navigator.navigateAndRemove(routes.first())
         routes.removeFirst()
     }
 }

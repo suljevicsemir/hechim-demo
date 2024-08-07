@@ -37,7 +37,11 @@ class NavigatorImpl @Inject constructor(): Navigator {
         if(homePath.isEmpty()) {
             throw NotFoundException("Home path not set, call setHome() before using navigateHome()")
         }
-        navigator.navigate(homePath)
+        navigator.navigate(homePath) {
+            popUpTo(navigator.graph.findStartDestination().id) {
+                inclusive = true
+            }
+        }
     }
 
     override fun navigateAndRemove(route: HechimRoute) {

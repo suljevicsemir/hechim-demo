@@ -11,4 +11,5 @@ interface HechimAuthentication {
     suspend fun register(email: String, password: String): HechimResource<HechimUser>
 
     suspend fun changePassword(oldPassword: String, newPassword: String): HechimResource<Boolean>
+    suspend fun logOut()
 }
