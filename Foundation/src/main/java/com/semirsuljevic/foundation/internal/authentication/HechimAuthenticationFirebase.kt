@@ -2,26 +2,22 @@ package com.semirsuljevic.foundation.internal.authentication
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.Firebase
-import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.EmailAuthCredential
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.firestore
-
 import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
 import com.semirsuljevic.foundation.api.user.model.HechimUser
 import com.semirsuljevic.foundation.api.common.HechimError
 import com.semirsuljevic.foundation.api.common.HechimResource
-import com.semirsuljevic.foundation.api.user.Profile
 import com.semirsuljevic.foundation.api.user.ProfileProvider
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class HechimAuthenticationFirebase @Inject constructor(
-    private val profile: ProfileProvider
+    private val profile: ProfileProvider,
 ): HechimAuthentication{
     override fun isAuthenticated() = Firebase.auth.currentUser != null
 
@@ -125,12 +121,9 @@ class HechimAuthenticationFirebase @Inject constructor(
             var task : Task<Void> = (Firebase.auth.currentUser!!.reauthenticate(authCredential))
             task.await()
             if(task.isSuccessful) {
-                println("reauthenticate success")
-                println("updating...")
                 val updateTask = Firebase.auth.currentUser!!.updatePassword(newPassword)
                 updateTask.await()
                 if(updateTask.isSuccessful) {
-                    println("update success")
                     return HechimResource.Success(true)
                 }
                 return HechimResource.Error(error = HechimError(message = "Update failed"))
@@ -139,6 +132,16 @@ class HechimAuthenticationFirebase @Inject constructor(
         }
         catch (e: Exception) {
             return HechimResource.Error(error = HechimError(message = "Old password incorrect"))
+        }
+    }
+
+    override suspend fun logOut() {
+        try {
+            Firebase.auth.signOut()
+
+        }
+        catch (e: Exception) {
+
         }
     }
 }

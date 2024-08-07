@@ -91,7 +91,6 @@ class PermissionViewModel @Inject constructor(
             requestMultiplePermission(multipleLauncher, multiplePermissions.toTypedArray())
             return
         }
-        println("requesting: $manifestPermission")
         if(manifestPermission == android.Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS) {
             _batteryOptimizationPrompted.value = true
             requestIgnoreBatteryOptimization()

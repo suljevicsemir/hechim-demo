@@ -6,10 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.hechimdemo.dashboard.R
 import com.hechimdemo.dashboard.api.about.ui.RouteAboutUs
 import com.hechimdemo.dashboard.api.appSettings.ui.RouteApplicationSettings
 import com.hechimdemo.dashboard.api.legal.ui.RouteLegal
+import com.hechimdemo.dashboard.api.more.viewmodel.MoreViewModel
 import com.hechimdemo.dashboard.api.profile.ui.RouteProfile
 import com.semirsuljevic.foundation.api.common.UiText
 import com.semirsuljevic.ui.api.common.HechimListItem
@@ -20,7 +22,8 @@ import com.semirsuljevic.ui.api.theme.HechimTheme
 @Composable
 fun DashboardMoreRoute(
     modifier: Modifier = Modifier,
-    onItemTap: (HechimRoute) -> Unit
+    onItemTap: (HechimRoute) -> Unit,
+    viewModel: MoreViewModel = hiltViewModel()
 ) {
    Column (
        horizontalAlignment = Alignment.CenterHorizontally
@@ -72,7 +75,7 @@ fun DashboardMoreRoute(
                description = UiText.StringResource(R.string.settings_log_out_desc),
                icon = R.drawable.ic_logout,
                onClick = {
-
+                   viewModel.logOut()
                }
            )
        )

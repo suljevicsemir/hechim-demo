@@ -29,9 +29,7 @@ class HechimSettingsFirebase @Inject constructor(
             .limitToLast(1)
             .get()
         task.await()
-        println("awaited")
         if(task.isSuccessful) {
-            println("about us success")
             val doc = task.result.documents.first()
             _aboutUsFlow.tryEmit(
                 HechimResource.Success(
@@ -43,7 +41,6 @@ class HechimSettingsFirebase @Inject constructor(
             )
             return
         }
-        println("about us error: ${task.exception}")
         _aboutUsFlow.tryEmit(HechimResource.Error(error = HechimError(message = "")))
     }
 

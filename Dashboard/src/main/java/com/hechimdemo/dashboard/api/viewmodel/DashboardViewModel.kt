@@ -24,7 +24,6 @@ class DashboardViewModel @Inject constructor(
     }
 
     fun dashboardPop() {
-        println("popping")
         setNavBarIndex(0)
         navigator.pop()
     }

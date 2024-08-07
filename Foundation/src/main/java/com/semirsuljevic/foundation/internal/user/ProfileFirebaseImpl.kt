@@ -23,10 +23,8 @@ class ProfileFirebaseImpl @Inject constructor(
             .document(Firebase.auth.uid ?: "")
             .get()
         task.await()
-        println("got user: ${task.result.data}")
         if(task.isSuccessful) {
             val profile = task.result.toObject(HechimUser::class.java)!!
-            println("updating hechim user: ${profile.toString()}")
             hechimDataStore.updateHechimUser(hechimUser = profile)
         }
     }

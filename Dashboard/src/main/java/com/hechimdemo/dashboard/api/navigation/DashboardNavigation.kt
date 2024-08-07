@@ -26,9 +26,7 @@ import com.hechimdemo.dashboard.api.profile.ui.RouteProfile
 import com.hechimdemo.dashboard.api.ui.DashboardNavBar
 import com.hechimdemo.dashboard.api.ui.RouteDashboard
 import com.hechimdemo.dashboard.api.viewmodel.DashboardViewModel
-import com.semirsuljevic.onboarding.api.welcome.ui.language.LanguageSelectionScreen
-import com.semirsuljevic.onboarding.api.welcome.ui.language.RouteLanguageSelection
-import com.semirsuljevic.onboarding.api.welcome.viewmodel.LanguageSelectionViewModel
+import com.semirsuljevic.onboarding.api.trapdoor.viewmodel.TrapdoorViewModel
 
 fun NavGraphBuilder.dashboardNavGraph(
     viewModelStoreOwner: ViewModelStoreOwner,
@@ -36,7 +34,8 @@ fun NavGraphBuilder.dashboardNavGraph(
     composable(route = RouteDashboard().path) {
         val viewModel = viewModel<DashboardViewModel>(viewModelStoreOwner)
         DashboardNavBar(
-            viewModel = viewModel
+            viewModel = viewModel,
+            trapdoorViewModel = viewModel<TrapdoorViewModel>(viewModelStoreOwner)
         )
     }
     composable(route = RouteAboutUs().path) {

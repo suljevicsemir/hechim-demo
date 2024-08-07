@@ -8,6 +8,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -19,6 +21,8 @@ import com.hechimdemo.dashboard.api.navigation.DashboardMoreItem
 import com.hechimdemo.dashboard.api.navigation.DashboardProfileItem
 import com.hechimdemo.dashboard.api.navigation.DashboardWorkoutsItem
 import com.hechimdemo.dashboard.api.viewmodel.DashboardViewModel
+import com.semirsuljevic.onboarding.api.trapdoor.viewmodel.TrapdoorViewModel
+import com.semirsuljevic.ui.api.common.ComposableLifecycle
 import com.semirsuljevic.ui.api.navbar.HechimNavigationBar
 import com.semirsuljevic.ui.api.navigation.HechimRoute
 import com.semirsuljevic.ui.api.screen.HechimScreen
@@ -31,7 +35,18 @@ class RouteDashboard:HechimRoute("dashboard")
 fun DashboardNavBar(
     navController: NavHostController = rememberNavController(),
     viewModel: DashboardViewModel,
+    trapdoorViewModel: TrapdoorViewModel = hiltViewModel()
 ) {
+
+    ComposableLifecycle(
+        onEvent = { _, event ->
+            //ON_RESUME is called every time app is usable
+            //back from background or system popup dismissed (permission)
+            if(event == Lifecycle.Event.ON_RESUME) {
+                trapdoorViewModel.checkTrapdoorPermission()
+            }
+        }
+    )
 
 
     HechimScreen (
