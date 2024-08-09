@@ -1,5 +1,5 @@
 [versions]
-agp = "8.2.0"
+agp = "8.4.0"
 kotlin = "1.9.22"
 core-ktx = "1.13.0"
 junit = "5.8.2"
@@ -27,6 +27,7 @@ security = "1.1.0-alpha06"
 junit-junit = "4.13.2"
 firebase-bom = "33.0.0"
 google-services = "4.4.1"
+uiAndroid = "1.6.7"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -88,6 +89,7 @@ security-crypto = {group = "androidx.security", name ="security-crypto", version
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom"}
 firebase-firestore = {group = "com.google.firebase", name ="firebase-firestore"}
 firebase-authentication = {group = "com.google.firebase", name = "firebase-auth"}
+androidx-ui-android = { group = "androidx.compose.ui", name = "ui-android", version.ref = "uiAndroid" }
 
 
 [plugins]

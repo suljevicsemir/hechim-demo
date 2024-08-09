@@ -105,6 +105,7 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/gradle/incremental.annotation.processors"
         }
     }
 }
@@ -113,6 +114,7 @@ dependencies {
     implementation(project(":Foundation"))
     implementation(project(":Onboarding"))
     implementation(project(":UI"))
+    implementation(project(":Dashboard"))
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)

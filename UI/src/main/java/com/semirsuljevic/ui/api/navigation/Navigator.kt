@@ -8,4 +8,9 @@ interface Navigator {
     fun navigate(route: HechimRoute)
     fun navigate(path: String)
     fun pop()
+
+    fun setHome(path: String)
+    fun navigateHome()
+
+    fun navigateAndRemove(route: HechimRoute)
 }

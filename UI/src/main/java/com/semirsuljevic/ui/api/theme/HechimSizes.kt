@@ -10,6 +10,7 @@ object HechimSizes {
     val large = 16.dp
     val xLarge = 24.dp
     val xxLarge = 32.dp
+    val xxxLarge = 64.dp
 
     val scaffoldHorizontal = 20.dp
 

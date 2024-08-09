@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.semirsuljevic.foundation.api.authentication.CredentialsValidator
 import com.semirsuljevic.foundation.api.authentication.HechimAuthentication
-import com.semirsuljevic.foundation.api.authentication.model.HechimUser
+import com.semirsuljevic.foundation.api.user.model.HechimUser
 import com.semirsuljevic.foundation.api.common.HechimResource
 import com.semirsuljevic.onboarding.api.welcome.ui.onboarding.RouteOnBoardingPop
 import com.semirsuljevic.ui.api.navigation.Navigator
@@ -54,6 +54,9 @@ class RegisterViewModel @Inject constructor(
                 email = _email,
                 password = _password.value
             )
+            if(_resource.value is HechimResource.Success) {
+                navigator.navigateHome()
+            }
         }
     }
 

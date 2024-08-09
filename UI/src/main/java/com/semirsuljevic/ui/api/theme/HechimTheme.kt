@@ -5,4 +5,5 @@ object HechimTheme {
     val fonts = HechimFonts
     val sizes = HechimSizes
     val shapes = HechimShapes
+    val brand = HechimBrand
 }

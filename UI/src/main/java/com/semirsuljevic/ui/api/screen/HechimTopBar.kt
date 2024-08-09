@@ -48,7 +48,7 @@ fun HechimTopBar(
                 HechimIconButton(
                     icon = R.drawable.ic_arrow_right,
                     onClick = { navigateUp() },
-                    modifier = Modifier.rotate(degrees = 180f)
+                    modifier = Modifier.rotate(degrees = 90f)
                 )
             }
         }
