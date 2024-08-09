@@ -9,8 +9,8 @@ Code mainly focuses:
 - handling different UI states with grace
 
 Certain parts of the skills demonstration will also be:
-- navigation
-- UI grace handling (loading, error, success, content)
+- navigation https://github.com/suljevicsemir/hechim-demo/wiki/Navigation
+- UI grace handling (loading, error, success, content) https://github.com/suljevicsemir/hechim-demo/wiki/UI-states-handling
 
   
 
